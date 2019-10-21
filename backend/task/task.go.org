@@ -10,7 +10,7 @@ import (
 var ws = new(sync.WaitGroup)
 
 func main() {
-	config.ReadConfig("../config")
+	config.ReadConfig("")
 
 	// start tasks
 	ws.Add(1)

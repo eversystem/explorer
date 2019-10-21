@@ -1,0 +1,8 @@
+panic: Fatal error config file: Config File "config" Not Found in "[/Users/drjiro/go/src/github.com/iost-official/explorer/backend/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0x0, 0x0)
+	/Users/drjiro/Dropbox/Private/explorer/backend/config/readConfig.go:20 +0x160
+main.main()
+	/Users/drjiro/Dropbox/Private/explorer/backend/task/task.go:13 +0x29

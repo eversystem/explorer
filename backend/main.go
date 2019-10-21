@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	config.ReadConfig("")
+	config.ReadConfig("./config")
 	controller.SyncBP()
 
 	e := echo.New()
@@ -64,5 +64,5 @@ func main() {
 	e.GET("/api/GetVoteAwardList", controller.GetVoteAwardList)
 	e.GET("/api/GetVoteAwardInfo", controller.GetVoteAwardInfo)
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":8088"))
 }
