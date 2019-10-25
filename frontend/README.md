@@ -1,6 +1,6 @@
 # explorer
 
-> IOST BlockChain Explorer
+> ATS BlockChain Explorer
 
 ## Build Setup
 

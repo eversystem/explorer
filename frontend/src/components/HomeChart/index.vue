@@ -13,7 +13,7 @@
         id: "txnCharts",
         option: {
           title: {
-            text: '14 day IOST Transactions History'
+            text: '14 day ATS chain Transactions History'
           },
 
           xAxis: {

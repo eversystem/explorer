@@ -117,7 +117,7 @@ func saveToken(file string, token *oauth2.Token) {
 func SendMail(subject, content string) error {
 	var message gmail.Message
 	mail := []byte("From: 'me'\r\n" +
-		"To: feedback@iost.io\r\n" +
+		"To: info+jLOD@eversystem.co.jp\r\n" +
 		"Subject: " + subject + "\r\n" +
 		"\r\n" + content)
 	message.Raw = base64.StdEncoding.EncodeToString(mail)

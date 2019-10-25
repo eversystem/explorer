@@ -4,23 +4,9 @@
       <div class="my-footer-top">
         <div class="my-footer-left">
           <img src="/static/img/iostFoot.png">
-          <h2>IOST</h2>
+          <h2>ATS chain</h2>
         </div>
-        <ul class="my-footer-middle">
-          <li><a href="https://iost.io/tech">Technology</a></li>
-          <li><a href="https://iost.io/team">Team</a></li>
-          <li><a href="https://iost.io/resource">Resources</a></li>
-          <li><a href="https://iost.io/career">Career</a></li>
-          <li><a href="https://iost.io/community">Community</a></li>
-        </ul>
-        <ul class="my-footer-right">
-          <li><a href="https://twitter.com/iostoken"><i class="fab fa-twitter"></i> </a></li>
-          <li><a href="https://t.me/officialios"><i class="fab fa-telegram-plane"></i></a></li>
-          <li><a href="https://www.reddit.com/r/IOStoken"><i class="fab fa-reddit-alien"></i></a></li>
-          <li><a href="https://medium.com/@iostoken"><i class="fab fa-medium-m"></i></a></li>
-        </ul>
       </div>
-      <p>Our mission is to be the underlying architecture for the future of online service providers globally. We are laying the foundation for an ultra-high TPS blockchain infrastructure, one that meets the security and scalability needs of a decentralized economy.</p>
     </div>
   </div>
 </template>
