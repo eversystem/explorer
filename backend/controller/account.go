@@ -113,9 +113,7 @@ func GetAccountDetail(c echo.Context) error {
 	}
 	accOutput := convertAccOutputs([]*db.Account{account})[0]
 
-	marketInfo, err := model.GetMarketInfo()
-	price, _ := strconv.ParseFloat(marketInfo.Price, 32)
-	value := account.AccountInfo.Balance * price
+	value := account.AccountInfo.Balance
 
 	return c.JSON(http.StatusOK, FormatResponse(struct {
 		*AccountOutput

@@ -20,7 +20,6 @@ func main() {
 	e.Use(echoMiddle.Logger())
 
 	// index
-	e.GET("/api/market", controller.GetMarket)
 	e.GET("/api/indexBlocks", controller.GetIndexBlocks)
 	e.GET("/api/indexTxns", controller.GetIndexTxns)
 
