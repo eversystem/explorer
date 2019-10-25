@@ -25,8 +25,8 @@ import (
 )
 
 const (
-	chainInfoUrl    = "https://api.iost.io/getChainInfo"
-	chainStorageUrl = "http://api.iost.io/getContractStorage"
+	chainInfoUrl    = "https://52.68.100.183/getChainInfo"
+	chainStorageUrl = "http://52.68.100.183/getContractStorage"
 )
 
 type chainInfo struct {

@@ -188,12 +188,12 @@
 				}
 				self.account = account;
 
-				axios.get(`https://api.iost.io/getCandidateBonus/${account}/1`)
+				axios.get(`https://52.68.100.183/getCandidateBonus/${account}/1`)
 		        	.then((response) => {
 		        		self.bonusVal = response.data.bonus / 2;
 		          })
 
-		       	axios.get(`https://api.iost.io/getTokenBalance/${account}/contribute/1`)
+		       	axios.get(`https://52.68.100.183/getTokenBalance/${account}/contribute/1`)
 		       		.then((response) => {
 		       			self.bpVal = response.data.balance;
 		       		})
