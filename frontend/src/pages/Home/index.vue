@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import MarketInfo from "../../components/MarketInfo";
+  /* import MarketInfo from "../../components/MarketInfo"; */
   import IndexBlock from "../../components/HomeBlocks";
   import IndexTxns from "../../components/HomeTxns";
   import Search from '../../components/Search'
@@ -26,7 +26,8 @@
 
 <style lang="less" rel="stylesheet/less">
 .bg {
-  background-image: url("/static/img/bg.png");
+/*  background-image: url("/static/img/bg.png"); */
+  background-color: #2149A7;
   background-size: 100%;
   background-repeat: no-repeat;
   margin-top: -90px;
