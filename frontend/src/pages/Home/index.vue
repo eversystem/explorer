@@ -2,7 +2,6 @@
   <div class="bg">
     <div class="home-box">
       <Search/>
-      <MarketInfo/>
       <div class="blockTxns-container">
         <IndexBlock/>
         <IndexTxns/>
@@ -12,7 +11,6 @@
 </template>
 
 <script>
-  /* import MarketInfo from "../../components/MarketInfo"; */
   import IndexBlock from "../../components/HomeBlocks";
   import IndexTxns from "../../components/HomeTxns";
   import Search from '../../components/Search'
