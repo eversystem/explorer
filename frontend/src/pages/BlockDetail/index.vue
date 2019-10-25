@@ -1,7 +1,5 @@
 <template>
   <div class="blockDetail-box">
-    <LuckyBet/>
-
     <div class="blockDetail-header">
       <div class="my-header-container">
         <h1>Block Information</h1>

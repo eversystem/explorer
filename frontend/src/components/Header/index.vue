@@ -74,7 +74,7 @@
     },
     watch: {
       '$route' (to) {
-        const arr = ['/block','/tx','/account','/applyIOST','/feedback','/search','/luckyBet','404']
+        const arr = ['/block','/tx','/account','/applyIOST','/feedback','/search','404']
         let arr2 = arr.filter((a, index) => {
           return to.path.search(a)+1
         })
@@ -96,9 +96,6 @@
           this.currentTheme = false
         } else if (result == '/search') {
           this.currentColor = 6
-          this.currentTheme = false
-        } else if (result == '/luckyBet') {
-          this.currentColor = 7
           this.currentTheme = false
         } else if (result == '404') {
           this.currentColor = 8
@@ -181,7 +178,7 @@
 
     // 为了在当前页刷新之后，依旧保持当前状态
     created () {
-      const arr = ['/','/block','/tx','/account','/applyIOST','/feedback','/search','/luckyBet']
+      const arr = ['/','/block','/tx','/account','/applyIOST','/feedback','/search']
       let arr2 = arr.filter((a, index) => {
         return location.pathname.search(a)+1
       })
@@ -205,8 +202,6 @@
         this.currentColor = 5
       }else if (result == '/search') {
         this.currentColor = 6
-      }else if (result == '/luckyBet') {
-        this.currentColor = 7
       }
 
       // 404页面
@@ -252,20 +247,6 @@
         .logo-link{
           > img {
             width: 130px;
-          }
-        }
-      }
-      .my-luckybet {
-        color: #FFFFFF;
-        a {
-          color: #8F9A9C;
-          text-decoration: none;
-          font-size: 14px;
-          line-height: 18px;
-        }
-        &.active {
-          a {
-            color: #FFFFFF;
           }
         }
       }

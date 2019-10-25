@@ -6,19 +6,6 @@
 				<h1>Create</h1>
       </div>
     </div>
-
-		<div class="my-tips-container">
-			<div class="" id="luckyBetIntro">
-				<p>Lucky Bet is operating on the v1.0 Everest testnet of the IOST Blockchain. It provides a way for users to participate and try out the IOST testnet. Everest is still in its early testing phase. In order to launch a stable Mainnet, IOST engineers will be constantly pressure testing, adjusting, fixing and upgrading the testnet. This may result in instability, periods where the testnet is offline, and other abnormalities.</p>
-				<p>If you encounter any issues or bugs, please email team@iost.io or report your issue via the following link:</p>
-				<router-link to="/feedback">https://explorer.iost.io/feedback</router-link>
-				<p class="cn">此页面用于创建IOST主网账号，单IP每天最多创建5个账号。</p>
-				<p>如果你发现了测试网络的任何Bug，欢迎发邮件给team@iost.io，或在以下网址提交给我们改进：</p>
-				<!--<a href="https://explorer.iost.io/#/feedback">https://explorer.iost.io/#/feedback</a>-->
-				<router-link to="/feedback">https://explorer.iost.io/feedback</router-link>
-			</div>
-		</div>
-
 		<div class="my-container">
 			<div class="my-err-msg" role="alert" id="errAlert">{{errMsg}}</div>
 			<div class="my-group">
