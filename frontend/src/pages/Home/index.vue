@@ -18,7 +18,7 @@
   export default {
     name: "Home",
 
-    components: {Search, IndexTxns, IndexBlock, MarketInfo},
+    components: {Search, IndexTxns, IndexBlock},
   }
 </script>
 

@@ -13,13 +13,6 @@ export default {
     }
   },
 
-  async getMarketInfo ({commit}) {
-    const { data } = await axios.get(apis.market)
-    if(data.code == 0){
-      commit(types.MARKETINFO, {marketInfo: data.data})
-    }
-  },
-
   async getIndexTxnList ({commit}) {
     const { data } = await axios.get(apis.indexTxns)
     if(data.code == 0){

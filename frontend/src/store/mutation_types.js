@@ -4,7 +4,6 @@
 
 const types = {
   INDEXBLOCKLIST: 'indexBlocks',
-  MARKETINFO: 'marketInfo',
   INDEXTXNLIST: 'indexTxnList',
 
   BLOCKINFO: 'blockInfo',

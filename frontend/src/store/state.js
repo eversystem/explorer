@@ -4,7 +4,6 @@
 
 export default {
   indexBlockList: [],
-  marketInfo: [],
   indexTxnList: [],
   blockInfo: {},
   blockDetail: {},

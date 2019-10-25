@@ -5,11 +5,7 @@ export default {
   [types.INDEXBLOCKLIST] (state, {indexBlockList}) {
     state.indexBlockList = indexBlockList
   },
-
-  [types.MARKETINFO] (state, {marketInfo}) {
-    state.marketInfo = marketInfo
-  },
-
+  
   [types.INDEXTXNLIST] (state, {indexTxnList}) {
     state.indexTxnList = indexTxnList
   },
