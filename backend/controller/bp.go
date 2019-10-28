@@ -25,8 +25,8 @@ import (
 )
 
 const (
-	chainInfoUrl    = "http://52.68.100.183:30001/getChainInfo"
-	chainStorageUrl = "http://52.68.100.183:30001/getContractStorage"
+	chainInfoUrl    = "http://172.31.11.131:30001/getChainInfo"
+	chainStorageUrl = "http://172.31.11.131:30001/getContractStorage"
 )
 
 type chainInfo struct {
