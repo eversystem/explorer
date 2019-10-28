@@ -16,7 +16,7 @@ func UpdateBlocks(ws *sync.WaitGroup) {
 	blockChannel := make(chan *rpcpb.Block, 10)
 	go insertBlock(blockChannel)
 
-	ticker := time.NewTicker(time.Second)
+	ticker := time.NewTicker(0.1 * time.Second)
 
 	var topHeightInMongo int64
 	for range ticker.C {
