@@ -64,7 +64,7 @@ func ModifyIntToTimeStr(intTime int64) string {
 
 func ModifyBlockIntToTimeStr(intTime, pos int64) string {
 	currentUnixSec := time.Now().Unix()
-	fixPos := 0 //currentUnixSec - pos/1e9
+	fixPos := int64(0) //currentUnixSec - pos/1e9
 	secSub := currentUnixSec - intTime/1e9 - fixPos + 1
 
 	switch {
