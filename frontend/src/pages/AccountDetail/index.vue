@@ -137,16 +137,16 @@
         this.$store.dispatch('getAccountTxnInfo', this.address)
 
 
-        // axios.get('https://explorer.iost.io/api/account/' + this.address).then((response) => {
+        // axios.get('https://127.0.0.1/api/account/' + this.address).then((response) => {
         //   this.account = response.data
         // })
-        // axios.get('https://explorer.iost.io/api/account/' + this.address + '/txs').then((response) => {
+        // axios.get('https://127.0.0.1/api/account/' + this.address + '/txs').then((response) => {
         //   this.txnList = response.data.txn_list
         //   this.txnLen = response.data.txn_len
         // })
 
         this.addressx = this.address.replace('Contract','')
-        // axios.get('https://explorer.iost.io/api/tx/' + this.address).then((response) => {
+        // axios.get('https://127.0.0.1/api/tx/' + this.address).then((response) => {
         axios.get(`${apis.tx}${this.addressx}`).then((response) => {
           if (response.data.code == 1) {
             this.isShow = true

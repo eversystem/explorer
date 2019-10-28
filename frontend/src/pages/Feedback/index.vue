@@ -65,7 +65,7 @@ export default {
 			params.append('email', this.email)
 			params.append('content', this.content)
 
-			// axios.post('https://explorer.iost.io/api/feedback', params).then((response) => {
+			// axios.post('https://127.0.0.1/api/feedback', params).then((response) => {
 			axios.post(`${apis.search}`, params).then((response) => {
           swal(
 				  'Feedback success!',
