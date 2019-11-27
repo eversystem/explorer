@@ -21,6 +21,9 @@ import Bonus from '../pages/Bonus'
 
 Vue.use(Router)
 
+import 'bootstrap/dist/css/bootstrap.css' // added
+import 'bootstrap-vue/dist/bootstrap-vue.css' // added
+
 export default new Router({
   mode: 'history',
   // 切换路由后，回到顶部

@@ -21,6 +21,7 @@ require (
 	github.com/spf13/jwalterweatherman v0.0.0-20180814060501-14d3d4c51834
 	github.com/spf13/pflag v0.0.0-20180821114517-d929dcbb1086
 	github.com/spf13/viper v0.0.0-20180828220506-8addaed22d65
+	github.com/thoas/go-funk v0.4.0
 	github.com/valyala/fasttemplate v1.1.0 // indirect
 	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
 	golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c

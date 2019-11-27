@@ -1,275 +1,377 @@
 <template>
   <div class="txnsDetail-box">
-
     <div class="txnsDetail-header">
       <div class="my-header-container">
-        <h1>Transaction Information</h1>
-        <p>#{{txHash}}</p>
+        <h2>Transaction Information</h2>
       </div>
     </div>
 
     <div class="txnsDetail-information">
-      <img src="/static/img/iostWhite.png" alt="">
-      <div class="txnsDetail-hash">
-        <h4>TxHash:</h4>
-        <p>{{txHash}}</p>
-      </div>
-      <div class="txnsDetail-block-time">
-        <div class="txnsDetail-block">
-          <h4>Block Height:</h4>
-          <p><router-link :to="{path:`/block/${txnDetail.blockHeight}`}">{{txnDetail.blockHeight}}</router-link></p>
+      <div class="card">
+        <div class="card-header">
+          <h5>Transaction #{{txHash}}</h5>
         </div>
-        <div class="txnsDetail-time">
-          <h4>TimeStamp:</h4>
-          <p>{{txnDetail.age}}({{txnDetail.utcTime}})</p>
+        <div class="card-body">
+          <table class="table">
+            <tr>
+              <th>All:</th>
+              <td>{{txnDetail}}</td>
+            </tr>
+            <tr>
+              <th>Block Height:</th>
+              <td>
+                <router-link
+                  :to="{path:`/block/${txnDetail.blockHeight}`}"
+                >{{txnDetail.blockHeight}}</router-link>
+              </td>
+            </tr>
+            <tr>
+              <th>TimeStamp:</th>
+              <td>{{txnDetail.age}}({{txnDetail.utcTime}})</td>
+            </tr>
+            <tr>
+              <th>From:</th>
+              <td>
+                <router-link
+                  v-if="txnDetail.from !='_Block_Base'"
+                  :to="{path:`/account/${txnDetail.from}`}"
+                >{{txnDetail.from}}</router-link>
+                <a v-else href="javascript:void(0)">{{txnDetail.from}}</a>
+              </td>
+            </tr>
+            <tr>
+              <th>To:</th>
+              <td>
+                <router-link :to="{path:`/account/${txnDetail.to}`}">{{txnDetail.to}}</router-link>
+              </td>
+            </tr>
+            <tr>
+              <th>Amount:</th>
+              <td>{{txnDetail.amount}}</td>
+            </tr>
+            <tr>
+              <th>Gas Limit:</th>
+              <td>{{txnDetail.gasLimit}}</td>
+            </tr>
+            <tr>
+              <th>Gas Price:</th>
+              <td>{{txnDetail.price}}</td>
+            </tr>
+            <tr>
+              <th>Signers:</th>
+              <td>{{txnDetail.signers}}</td>
+            </tr>
+
+            <tr>
+              <th>Contract:</th>
+              <td>{{txnDetail.contract}}</td>
+            </tr>
+            <tr>
+              <th>ActionName：</th>
+              <td>
+                {{txnDetail.actionName}}
+              </td>
+            </tr>
+            <tr>
+              <th>Memo:</th>
+              <td>{{txnDetail.memo}}</td>
+            </tr>
+            <tr>
+              <th>Value:</th>
+              <td>{{txnDetail.amount}} IOST</td>
+            </tr>
+            <tr>
+              <th>Code</th>
+              <pre>{{txnDetail.code}}</pre>
+            </tr>
+            <tr>
+              <th>data:</th>
+              <td>{{txnDetail.data}}</td>
+            </tr>
+            <tr>
+              <th>Status:</th>
+              <td>{{txnDetail.statusCode}}</td>
+            </tr>
+            <tr>
+              <th>StatusMessage:</th>
+              <td>{{txnDetail.statusMessage}}</td>
+            </tr>
+          </table>
         </div>
       </div>
-      <div class="txnsDetail-from">
-        <h4>From:</h4>
-        <p>
-          <router-link v-if="txnDetail.from !='_Block_Base'" :to="{path:`/account/${txnDetail.from}`}">{{txnDetail.from}}</router-link>
-          <a v-else href="javascript:void(0)">{{txnDetail.from}}</a>
-        </p>
-      </div>
-
-
-      <div class="txnsDetail-to" v-if="txnDetail.actionName != 'transfer'">
-        <h4>To:</h4>
-        <p v-if="txnDetail.to == 'iost.system'">{{txnDetail.to}}</p>
-        <p><span>actionName：</span>{{txnDetail.actionName}}</p>
-
-        <div class="my-pre" v-if="txnDetail.actionName == 'SetCode'">
-          <span>code：</span>
-          <pre>{{txnDetail.code}}</pre>
+      <div class="card">
+        <div class="card-header">
+          <h5>Actions:</h5>
         </div>
-        <div class="my-pre-normal" v-else>
-          <span>data：</span><pre>{{txnDetail.data}}</pre>
-        </div>
-
-      </div>
-      <div class="txnsDetail-to" v-else>
-        <h4>To:</h4>
-        <p><router-link :to="{path:`/account/${txnDetail.to}`}">{{txnDetail.to}}</router-link></p>
-      </div>
-
-      <div class="txnsDetail-to" v-if="txnDetail.memo != ''">
-        <h4>Memo:</h4>
-        <p>{{txnDetail.memo}}</p>
-      </div>
-
-
-      <div class="txnsDetail-value-gas">
-        <div class="txnsDetail-value">
-          <h4>Value:</h4>
-          <p>{{txnDetail.amount}} IOST</p>
-        </div>
-        <div class="txnsDetail-gas-limit">
-          <h4>Gas Limit:</h4>
-          <p>{{txnDetail.gasLimit}}</p>
-        </div>
-        <div class="txnsDetail-gas-price">
-          <h4>Gas Price:</h4>
-          <p>{{txnDetail.price}}</p>
+        <div class="card-body">
+          <table class="table">
+            <th>
+              Contract:
+            </th>
+            <th>
+              Interface:
+            </th>
+            <th>
+              Data:
+            </th>
+            <tr v-for="action in txnDetail.actions">
+              <td>
+                {{action.contract}}
+              </td>
+              <td>
+                {{action.action_name}}
+              </td>
+              <td>
+                {{action.data}}
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
-      <div v-if="txnDetail.code">
-        <h4>Code</h4>
-        <pre>{{txnDetail.code}}</pre>
+      <div class="card">
+        <div class="card-header">
+          <h5>Receipt:</h5>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <tr>
+              <th>Tx Hash:</th>
+              <td>{{txnDetail.receipt.tx_hash}}</td>
+            </tr>
+            <tr>
+              <th>Gas Usage:</th>
+              <td>{{txnDetail.receipt.gas_usage}}</td>
+            </tr>
+            <tr>
+              <th>RamUsage:</th>
+              <td>{{txnDetail.receipt.ram_usage}}</td>
+            </tr>
+            <tr>
+              <th>StatusCode:</th>
+              <td>{{txnDetail.receipt.status_code}}</td>
+            </tr>
+            <tr>
+              <th>Message:</th>
+              <td>{{txnDetail.receipt.message}}</td>
+            </tr>
+            <tr>
+              <th>Returns:</th>
+              <td>{{txnDetail.receipt.returns}}</td>
+            </tr>
+          </table>
+          <table class="table">
+            <th>
+              FuncName:
+            </th>
+            <th>
+              Content:
+            </th>
+            <tr v-for="receipt in txnDetail.receipt.receipts">
+              <td>
+                {{receipt.func_name}}
+              </td>
+              <td>
+                {{receipt.content}}
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
-  export default {
-    name: "Tx",
-    data() {
-      return {
-        txHash: '',
-      }
-    },
-    methods: {
-      fetchData(r) {
-        this.txHash = r.params.id
+export default {
+  name: "Tx",
+  data() {
+    return {
+      txHash: ""
+    };
+  },
+  methods: {
+    fetchData(r) {
+      this.txHash = r.params.id;
 
-        this.$store.dispatch('getTxnDetail', this.txHash)
-      }
-    },
-
-    computed: {
-      ...mapState(['txnDetail'])
-    },
-
-    watch: {
-      '$route': function (r) {
-        this.fetchData(r)
-      }
-    },
-    mounted: function () {
-      this.fetchData(this.$route)
+      this.$store.dispatch("getTxnDetail", this.txHash);
     }
+  },
+
+  computed: {
+    ...mapState(["txnDetail"])
+  },
+
+  watch: {
+    $route: function(r) {
+      this.fetchData(r);
+    }
+  },
+  mounted: function() {
+    this.fetchData(this.$route);
   }
+};
 </script>
 
 
 <style lang="less" rel="stylesheet/less">
-  .txnsDetail-box {
-    padding-bottom: 160px;
-    background: #F6F7F8;
-    .txnsDetail-header {
-      background: #F6F7F8;
-      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
-      .my-header-container {
-        width: 1000px;
-        margin: 0 auto;
-        height: 120px;
-        text-align: left;
-        overflow: hidden;
-        > h1 {
-          font-size: 36px;
-          line-height: 44px;
-          margin: 21px 0 15px;
+.txnsDetail-box {
+  padding-bottom: 160px;
+  background: #f6f7f8;
+  .txnsDetail-header {
+    background: #f6f7f8;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    .my-header-container {
+      width: 1000px;
+      margin: 0 auto;
+      height: 60px;
+      text-align: left;
+      overflow: hidden;
+      > h2 {
+        font-size: 28px;
+        line-height: 30px;
+        margin: 10px 0 10px;
+        font-weight: bold;
+      }
+      > p {
+        font-size: 14px;
+        height: 18px;
+        margin: 0;
+      }
+    }
+  }
+  .txnsDetail-information {
+    width: 1000px;
+    margin: 24px auto 0;
+    text-align: left;
+    background: #ffffff;
+    padding: 15px 50px;
+    position: relative;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    h4 {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: bold;
+      padding-bottom: 12px;
+      margin: 0;
+      color: #2c2e31;
+      &:last-child {
+        padding-bottom: 60px;
+      }
+    }
+    pre {
+      margin-bottom: 0;
+    }
+    p {
+      /*font-size: 18px;*/
+      font-size: 14px;
+      line-height: 22px;
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-weight: 300;
+      a {
+        color: #4b78aa;
+      }
+    }
+
+    > div {
+      margin-bottom: 60px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    > img {
+      height: 50px;
+    }
+    .txnsDetail-hash {
+      margin-top: 35px;
+    }
+    .txnsDetail-to {
+      .my-pre {
+        margin-top: 20px;
+        > span {
+          display: inline-block;
+          margin-bottom: 12px;
         }
-        > p {
-          font-size: 14px;
-          height: 18px;
+      }
+      .my-pre-normal {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        > pre {
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 850px;
+        }
+      }
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .txnsDetail-hash,
+    .txnsDetail-from,
+    .txnsDetail-to {
+      > h4 {
+        border-bottom: 1px solid #f6f7f8;
+      }
+    }
+    .txnsDetail-block-time {
+      display: flex;
+      .txnsDetail-block {
+        width: 33.3%;
+      }
+      > div {
+        > h4 {
+          border-bottom: 1px solid #f6f7f8;
+        }
+      }
+    }
+    .txnsDetail-value-gas {
+      display: flex;
+      > div {
+        width: 33.3%;
+        > h4 {
+          border-bottom: 1px solid #f6f7f8;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .txnsDetail-box {
+    padding-bottom: 24px;
+    .txnsDetail-header {
+      .my-header-container {
+        height: auto;
+        width: 100%;
+        flex-direction: column;
+        padding: 0 25px;
+        > h1 {
+          font-size: 30px;
+        }
+        .my-pages {
           margin: 0;
         }
       }
     }
     .txnsDetail-information {
-      width: 1000px;
-      margin: 24px auto 0;
-      text-align: left;
-      background: #FFFFFF;
-      padding: 15px 50px;
-      position: relative;
-      box-shadow: 0 2px 3px rgba(0,0,0,0.1);
-      h4 {
-        font-size: 14px;
-        line-height: 18px;
-        font-weight: bold;
-        padding-bottom: 12px;
-        margin: 0;
-        color: #2c2e31;
-        &:last-child {
-          padding-bottom: 60px;
-        }
-      }
-      pre {
-        margin-bottom: 0;
-      }
+      width: 100%;
+      padding: 15px 25px 0 25px;
       p {
-        /*font-size: 18px;*/
-        font-size: 14px;
-        line-height: 22px;
-        margin-top: 20px;
-        margin-bottom: 0;
-        font-weight: 300;
-        a {
-          color: #4b78aa;
-        }
-      }
-
-      > div {
-        margin-bottom: 60px;
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-      > img {
-        height: 50px;
-      }
-      .txnsDetail-hash {
-        margin-top: 35px;
-      }
-      .txnsDetail-to {
-        .my-pre {
-          margin-top: 20px;
-          > span {
-            display: inline-block;
-            margin-bottom: 12px;
-          }
-        }
-        .my-pre-normal {
-          display: flex;
-          align-items: center;
-          margin-top: 20px;
-          > pre {
-            display: inline-block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            max-width: 850px;
-          }
-        }
-        span {
-          font-weight: bold;
-        }
-
-      }
-
-      .txnsDetail-hash, .txnsDetail-from, .txnsDetail-to {
-        >h4 {
-          border-bottom: 1px solid #f6f7f8;
-        }
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
       .txnsDetail-block-time {
-        display: flex;
         .txnsDetail-block {
-          width: 33.3%;
-        }
-        > div {
-          >h4 {
-            border-bottom: 1px solid #f6f7f8;
-          }
-        }
-      }
-      .txnsDetail-value-gas {
-        display: flex;
-        > div {
-          width: 33.3%;
-          >h4 {
-            border-bottom: 1px solid #f6f7f8;
-          }
+          width: 50%;
         }
       }
     }
   }
-
-  @media screen and (max-width:480px) {
-    .txnsDetail-box {
-      padding-bottom: 24px;
-      .txnsDetail-header {
-        .my-header-container {
-          height: auto;
-          width: 100%;
-          flex-direction: column;
-          padding: 0 25px;
-          > h1 {
-            font-size: 30px;
-          }
-          .my-pages {
-            margin: 0;
-          }
-        }
-      }
-      .txnsDetail-information {
-        width: 100%;
-        padding: 15px 25px 0 25px;
-        p {
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .txnsDetail-block-time {
-          .txnsDetail-block {
-            width: 50%;
-          }
-        }
-      }
-    }
-  }
+}
 </style>

@@ -15,6 +15,55 @@ import (
 	"github.com/iost-official/explorer/backend/util"
 )
 
+type Action struct {
+	Contract string `json:"contract,omitempty"`
+	// action name
+	ActionName string `json:"action_name,omitempty"`
+	// data
+	Data       string   `json:"data,omitempty"`
+}
+/*
+type Signer struct {
+	// signature algorithm
+	Algorithm int32 `json:"algorithm,omitempty"`
+	// signature bytes
+	Signature []byte `json:"signature,omitempty"`
+	// public key
+	PublicKey   []byte   `json=publicKey,proto3" json:"public_key,omitempty"`
+}
+*/
+// transaction receipts
+type Receipt struct {
+	// function name
+	FuncName string `json:"func_name,omitempty"`
+	// content
+	Content  string   `json:"content,omitempty"`
+}
+
+type TxReceipt struct {
+	// transaction hash
+	TxHash string `json:"tx_hash,omitempty"`
+	// gas usage
+	GasUsage float64 `json:"gas_usage,omitempty"`
+	// ram usage
+	RamUsage map[string]int64 `json:"ram_usage,omitempty"`
+	// status code
+	StatusCode int32 `json:"status_code,omitempty"`
+	// message
+	Message string `json:"message,omitempty"`
+	// transaction returns
+	Returns []string `json:"returns,omitempty"`
+	// transaction receipts
+	Receipts []Receipt `json:"receipts,omitempty"`
+}
+
+type TxAmountLimit struct {
+	// token name
+	Token string `json:"token,omitempty"`
+	// limit value
+	Value string `json:"value,omitempty"`
+}
+
 /// this struct is used as json to return
 type TxnDetail struct {
 	Hash          string  `json:"txHash"`
@@ -33,6 +82,13 @@ type TxnDetail struct {
 	ActionName    string  `json:"actionName"`
 	Data          string  `json:"data"`
 	Memo          string  `json:"memo"`
+	Expiration    int64   `json:"expiration"`
+	Actions       []Action `json:"actions"`
+	Signers       []string `json:"signers"`
+	Publisher     string   `json:"publisher,omitempty"`
+	ReferredTx    string   `json:"referredTx"`
+	AmountLimit   []TxAmountLimit `json:"amountLimit"`
+	Receipt       TxReceipt `json:"receipt"`
 }
 
 type TxJson struct {
@@ -107,7 +163,94 @@ func getIOSTAmount(s string) float64 {
 }
 
 /// convert FlatTx to TxnDetail
+/*
+	Status
+	0: "SUCCESS",
+	1: "GAS_RUN_OUT",
+	2: "BALANCE_NOT_ENOUGH",
+	3: "WRONG_PARAMETER",
+	4: "RUNTIME_ERROR",
+	5: "TIMEOUT",
+	6: "WRONG_TX_FORMAT",
+	7: "DUPLICATE_SET_CODE",
+	8: "UNKNOWN_ERROR",
+
+	Transaction Response Status
+	0: "PENDING",
+	1: "PACKED",
+	2: "IRREVERSIBLE",
+
+	Block Response Status
+	0: "PENDING",
+	1: "IRREVERSIBLE",
+
+	EventTopic
+	0: "CONTRACT_RECEIPT",
+	1: "CONTRACT_EVENT",
+
+*/
 func ConvertTxOutput(tx *db.TxStore) *TxnDetail {
+	var actions []Action
+	for i := 0; i < len(tx.Tx.Actions); i++ {
+		action := Action{
+			Contract: tx.Tx.Actions[i].Contract,
+			// action name
+			ActionName: tx.Tx.Actions[i].ActionName,
+			// data
+			Data: tx.Tx.Actions[i].Data,
+		}
+		actions = append(actions, action)
+	}
+	/*
+	var signers []Signer
+	for i := 0; i < len(tx.Tx.Signers); i++ {
+		signer := Signer{
+			// signature algorithm
+			Algorithm: tx.Tx.Signers[i].Algorithm,
+			// signature bytes
+			Signature: tx.Tx.Signers[i].Signature,
+			// public key
+			PublicKey: tx.Tx.Signers[i].PublicKey,
+		}
+		signers = append(signers, signer);
+	}
+	*/
+	var receipts []Receipt
+	for i := 0; i < len(tx.Tx.TxReceipt.Receipts); i++ {
+		receipt := Receipt {
+			// function name
+			FuncName: tx.Tx.TxReceipt.Receipts[i].FuncName,
+			// content
+			Content: tx.Tx.TxReceipt.Receipts[i].Content,
+		}
+		receipts = append(receipts, receipt)
+	}
+	var amountLimits []TxAmountLimit
+	for i := 0; i < len(tx.Tx.AmountLimit); i++ {
+		receipt := TxAmountLimit {
+			// function name
+			Token: tx.Tx.AmountLimit[i].Token,
+			// content
+			Value: tx.Tx.AmountLimit[i].Value,
+		}
+		amountLimits = append(amountLimits, receipt)
+	}
+	txRecept := TxReceipt{
+		// transaction hash
+		TxHash: tx.Tx.TxReceipt.TxHash,
+		// gas usage
+		GasUsage: tx.Tx.TxReceipt.GasUsage,
+		// ram usage
+		RamUsage: tx.Tx.TxReceipt.RamUsage,
+		// status code
+		StatusCode: int32(tx.Tx.TxReceipt.StatusCode),
+		// message
+		Message: tx.Tx.TxReceipt.Message,
+		// transaction returns
+		Returns: tx.Tx.TxReceipt.Returns,
+		// transaction receipts
+		Receipts: receipts,
+	}
 	txnOut := &TxnDetail{
 		Hash:          tx.Tx.Hash,
 		BlockNumber:   tx.BlockNumber,
@@ -123,6 +266,12 @@ func ConvertTxOutput(tx *db.TxStore) *TxnDetail {
 		Contract:      tx.Tx.Actions[0].Contract,
 		ActionName:    tx.Tx.Actions[0].ActionName,
 		Data:          tx.Tx.Actions[0].Data,
+		Expiration:    tx.Tx.Expiration,
+		Actions:       actions,
+		Signers:       tx.Tx.Signers,
+		Publisher:     tx.Tx.Publisher,
+		ReferredTx:    tx.Tx.ReferredTx,
+		Receipt:       txRecept,
 	}
 
 	if tx.Tx.Actions[0].Contract == "token.iost" && tx.Tx.Actions[0].ActionName == "transfer" &&

@@ -3,7 +3,7 @@
 
 		<div class="applyIost-header">
       <div class="my-header-container">
-				<h1>Create</h1>
+				<h1>Create Account</h1>
       </div>
     </div>
 		<div class="my-container">

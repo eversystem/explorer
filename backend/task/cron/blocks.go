@@ -5,6 +5,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/thoas/go-funk"
 	"github.com/iost-official/explorer/backend/model/blockchain"
 	"github.com/iost-official/explorer/backend/model/blockchain/rpcpb"
 	"github.com/iost-official/explorer/backend/model/db"
@@ -16,7 +17,7 @@ func UpdateBlocks(ws *sync.WaitGroup) {
 	blockChannel := make(chan *rpcpb.Block, 10)
 	go insertBlock(blockChannel)
 
-	ticker := time.NewTicker(0.1 * time.Second)
+	ticker := time.NewTicker(time.Second)
 
 	var topHeightInMongo int64
 	for range ticker.C {
@@ -47,9 +48,11 @@ func UpdateBlocks(ws *sync.WaitGroup) {
 			time.Sleep(time.Second)
 			continue
 		}
-		blockChannel <- blockRspn.Block
+		if blockRspn.Block.TxCount  > 1 {// ブロックの中のトランザクション数が１個以下だったら弾く
+			blockChannel <- blockRspn.Block
+			log.Println("Download block", topHeightInMongo, " Succ!")
+		}
 		topHeightInMongo++
-		log.Println("Download block", topHeightInMongo, " Succ!")
 	}
 
 }
@@ -60,7 +63,12 @@ func insertBlock(blockChannel chan *rpcpb.Block) {
 	for {
 		select {
 		case b := <-blockChannel:
-			txs := b.Transactions
+			ts := b.Transactions
+			tr := funk.Filter(ts, func(tx *rpcpb.Transaction ) bool { // トランザクションのパブリッシャーがbase.iostだったら弾く
+				return tx.Publisher != "base.iost"
+			})
+
+			txs := tr.([]*rpcpb.Transaction)
 
 			wg := new(sync.WaitGroup)
 			wg.Add(2)

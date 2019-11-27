@@ -2,39 +2,28 @@
   <div class="blockDetail-box">
     <div class="blockDetail-header">
       <div class="my-header-container">
-        <h1>Block Information</h1>
-        <p>#{{blockHeight}}</p>
+        <h2>Block Information</h2>
       </div>
     </div>
-
     <div class="blockDetail-information">
-      <img src="/static/img/iostWhite.png" alt="">
-
-      <div class="blockDetail-height-txns">
-        <div class="blockDetail-height">
-          <h4>Height:</h4>
-          <p>{{blockHeight}}</p>
+      <div class="card">
+        <div class="card-header">
+          <h5>Block #{{blockHeight}}</h5>
         </div>
-        <div class="blockDetail-txns">
-          <h4>Transactions:</h4>
-          <p><router-link :to="{path:`/txs/?b=${blockHeight}`}">{{blockDetail.txn}}</router-link></p>
+        <div class="card-body">
+          <table class="table">
+            <tr><th>Height: </th><td>{{blockHeight}}</td></tr>
+            <tr><th>Hash: </th><td>{{blockDetail.blockHash}}</td></tr>
+            <tr><th>TimeStamp: </th><td>{{blockDetail.age}} ({{blockDetail.utcTime}})</td></tr>
+            <tr><th>Transactions: </th><td>
+              <router-link :to="{path:`/txs/?b=${blockHeight}`}">{{blockDetail.txn}}</router-link></td></tr>
+            <tr><th>Tx: </th><td>{{blockDetail.txList}}</td></tr>
+            <tr><th>Witness: </th><td><router-link :to="{path:`/account/${blockDetail.witness}`}">{{blockDetail.witness}}</router-link></td></tr>
+            <tr><th>Total Gas Limit: </th><td>{{blockDetail.totalGasLimit}}</td></tr>
+            <tr><th>Average Gas Price: </th><td>{{blockDetail.avgGasPrice}}</td></tr>
+            <tr><th>Parent Hash: </th><td>{{blockDetail.parentHash}}</td></tr>
+          </table>
         </div>
-      </div>
-      <div class="blockDetail-time">
-        <h4>TimeStamp:</h4>
-        <p>{{blockDetail.age}} ({{blockDetail.utcTime}})</p>
-      </div>
-      <div class="blockDetail-hash">
-        <h4>Hash:</h4>
-        <p>{{blockDetail.blockHash}}</p>
-      </div>
-      <div class="blockDetail-parent">
-        <h4>Parent Hash:</h4>
-        <p>{{blockDetail.parentHash}}</p>
-      </div>
-      <div class="blockDetail-witness">
-        <h4>Witness:</h4>
-        <p><router-link :to="{path:`/account/${blockDetail.witness}`}">{{blockDetail.witness}}</router-link></p>
       </div>
     </div>
   </div>
@@ -84,11 +73,11 @@
         margin: 0 auto;
         text-align: left;
         overflow: hidden;
-        height: 120px;
-        > h1 {
-          font-size: 36px;
-          line-height: 44px;
-          margin: 21px 0 15px;
+        height: 60px;
+        > h2 {
+          font-size: 28px;
+          line-height: 30px;
+          margin: 10px 0 10px;
           font-weight: bold;
         }
         > p {

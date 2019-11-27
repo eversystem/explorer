@@ -17,6 +17,21 @@
           <li class="my-nav-item" v-show="!isShow" :class="{active: currentColor == 2}">
             <router-link to="/txs">TRANSACTION</router-link>
           </li>
+          <li class="my-nav-item" :class="{active: currentColor == 2}">
+            <router-link to="/accounts">ACCOUNT</router-link>
+          </li>
+          <li class="my-nav-item" :class="{active: currentColor == 2}">
+            <router-link to="/applyIOST">ApplyAccount</router-link>
+          </li>
+          <li class="my-nav-item" :class="{active: currentColor == 2}">
+            <router-link to="/feedback">Feedback</router-link>
+          </li>
+          <li class="my-nav-item" :class="{active: currentColor == 2}">
+            <router-link to="/BPList">Producers</router-link>
+          </li>
+          <li class="my-nav-item" :class="{active: currentColor == 2}">
+            <router-link to="/bonusWithdraw">Bonus</router-link>
+          </li>
 
           <li class="my-nav-item searchActive" v-show="isShow">
             <input type="text" placeholder="Search..."
@@ -39,6 +54,21 @@
             </li>
             <li class="mobile-nav-item" :class="{active: currentColor == 2}">
               <router-link to="/txs">TRANSACTION</router-link>
+            </li>
+            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+              <router-link to="/accounts">ACCOUNT</router-link>
+            </li>
+            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+              <router-link to="/applyIOST">ApplyAccount</router-link>
+            </li>
+            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+              <router-link to="/feedback">Feedback</router-link>
+            </li>
+            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+              <router-link to="/BPList">Producers</router-link>
+            </li>
+            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+              <router-link to="/bonusWithdraw">Bonus</router-link>
             </li>
 
             <li class="mobile-nav-item">
