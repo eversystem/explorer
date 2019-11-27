@@ -24,9 +24,10 @@ import (
 	"github.com/spf13/viper"
 )
 
+const HOST = "172.31.11.131";
 const (
-	chainInfoUrl    = "http://localhost:30001/getChainInfo"
-	chainStorageUrl = "http://localhost:30001/getContractStorage"
+	chainInfoUrl    = `http://${HOST}:30001/getChainInfo`
+	chainStorageUrl = `http://${HOST}:30001/getContractStorage`
 )
 
 type chainInfo struct {
