@@ -4096,3 +4096,13 @@ Dial Correct!
 {"time":"2019-11-28T01:25:51.871474+09:00","id":"","remote_ip":"127.0.0.1","host":"localhost:8088","method":"GET","uri":"/api/BPList","user_agent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Mobile Safari/537.36","status":200,"error":"","latency":114564,"latency_human":"114.564µs","bytes_in":0,"bytes_out":32}
 2019/11/28 01:25:59 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 2019/11/28 01:26:19 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:26:39 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:26:59 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:27:19 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:27:39 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:27:59 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:28:19 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:28:39 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:28:59 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:29:19 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2019/11/28 01:29:39 getWitnessList error: Get http://172.31.11.131:30001/getChainInfo: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)

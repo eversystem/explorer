@@ -4,7 +4,6 @@ import (
 	"log"
 	"sync"
 	"time"
-
 	"github.com/thoas/go-funk"
 	"github.com/iost-official/explorer/backend/model/blockchain"
 	"github.com/iost-official/explorer/backend/model/blockchain/rpcpb"
@@ -48,9 +47,8 @@ func UpdateBlocks(ws *sync.WaitGroup) {
 			time.Sleep(time.Second)
 			continue
 		}
-		if blockRspn.Block.TxCount  > 1 {// ブロックの中のトランザクション数が１個以下だったら弾く
+		if blockRspn.Block.TxCount  > 1 {　// ブロックの中のトランザクション数が１個以下だったら弾く
 			blockChannel <- blockRspn.Block
-			log.Println("Download block", topHeightInMongo, " Succ!")
 		}
 		topHeightInMongo++
 	}
@@ -69,7 +67,7 @@ func insertBlock(blockChannel chan *rpcpb.Block) {
 			})
 
 			txs := tr.([]*rpcpb.Transaction)
-
+			
 			wg := new(sync.WaitGroup)
 			wg.Add(2)
 			go func() {
