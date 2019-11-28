@@ -14,18 +14,19 @@
   import IndexBlock from "../../components/HomeBlocks";
   import IndexTxns from "../../components/HomeTxns";
   import Search from '../../components/Search'
+  import Chart from "../../components/HomeChart";
 
   export default {
     name: "Home",
 
-    components: {Search, IndexTxns, IndexBlock},
+    components: {Search, IndexTxns, IndexBlock, Chart},
   }
 </script>
 
 <style lang="less" rel="stylesheet/less">
 .bg {
 /*  background-image: url("/static/img/bg.png"); */
-  background-color: #2149A7;
+/*  background-color: #2149A7; */
   background-size: 100%;
   background-repeat: no-repeat;
   margin-top: -90px;
@@ -34,6 +35,7 @@
     width: 1040px;
     margin: 0 auto;
     overflow: hidden;
+    /* background-color: #2149A7; */
     .blockTxns-container {
       padding: 0 20px 100px;
       display: flex;
@@ -51,6 +53,7 @@
       width: 100%;
       margin: 0 auto;
       overflow: hidden;
+      /* background-color: #2149A7; */
       .blockTxns-container {
         padding: 0 10px 24px;
         display: flex;

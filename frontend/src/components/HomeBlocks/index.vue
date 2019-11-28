@@ -10,12 +10,18 @@
       <li my-list-wrap v-for="block in indexBlockList">
         <p>
           <img src="/static/img/block.png" alt="">
-          <router-link :to="{path:`/block/${block.height}`}">Block {{block.height}}</router-link>
+          Block#:  
+          <router-link :to="{path:`/block/${block.height}`}">{{block.height}}</router-link>
         </p>
-        <p>Minted By</p>
+        <p>Mint: 
         <router-link :to="{path:`/block/${block.height}`}">{{block.witness}}</router-link>
-        <router-link :to="{path:`/txs/?b=${block.height}`}" style="text-align: left;">{{block.txn}} txns</router-link>
-        <p>{{block.age}}</p>
+        </p>
+        <p>Txn: 
+        <router-link :to="{path:`/txs/?b=${block.height}`}" style="text-align: left;">{{block.txn}} Transactions</router-link>
+        </p>
+        <p>TimeStamp: 
+          {{block.age}} ({{block.utcTime}})
+        </p>
       </li>
     </ul>
   </div>
@@ -45,7 +51,7 @@
     box-shadow: 0 10px 40px 0 rgba(0, 0, 0, .1);
     .my-list-banner {
       background: #F6F7F8;
-      padding: 0 30px;
+      padding: 0 10px 0 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -64,26 +70,29 @@
       }
     }
     .my-list-body {
-      padding-top: 8px;
       padding-left: 0;
+      padding-top: 8px;
+      margin-bottom: 0;
+      padding-bottom: 10px;
+
       li {
         list-style: none;
         text-align: left;
-        padding: 16px 0 22px 30px;
+        padding: 10px 10px 10px 10px;
         line-height: 1;
         > p{
           /*font-size: 12px;*/
-          font-size: 14px;
-          line-height: 15px;
+          font-size: 12px;
+          line-height: 12px;
           color: #2C2E31;
-          margin-bottom: 0;
-          padding-left: 50px;
+          margin-bottom: 5px;
+          padding-left: 0px;
           > img {
             width: 24px;
             height: 24px;
           }
           > a{
-            padding-left: 26px;
+            padding-left: 5px;
             font-size: 14px;
             line-height: 18px;
             font-weight: bold;
@@ -93,13 +102,13 @@
             display: flex;
             padding-left: 0;
             align-items: center;
-            padding-bottom: 6px;
+            padding-bottom: 5px;
           }
           &:nth-of-type(2) {
-            margin-top: 9px;
+            margin-top: 5px;
           }
           &:nth-of-type(3) {
-            margin-top: 16px;
+            margin-top: 5px;
           }
         }
         > a {
@@ -139,7 +148,6 @@
           }
         }
       }
-
     }
   }
   @media screen and (max-width:480px) {

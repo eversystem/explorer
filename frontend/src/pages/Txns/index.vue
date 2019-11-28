@@ -57,11 +57,8 @@
       <ul class="my-list-header">
         <li>Height</li>
         <li>TxHash</li>
-        <li>From</li>
-        <li></li>
-        <li>To</li>
+        <li>Publisher</li>
         <li>Age</li>
-        <li>Value</li>
       </ul>
       <div class="list-wrap">
         <div class="list-body-wrap" v-for="tx in txnInfo.txsList">
@@ -73,19 +70,11 @@
               <router-link :to="{path:`/tx/${tx.txHash}`}">{{tx.txHash}}</router-link>
             </li>
             <li>
-              <span v-if="address == tx.from">{{tx.from}}</span>
-              <router-link v-else-if="tx.from !='_Block_Base'" :to="{path:`/account/${tx.from}`}">{{tx.from}}</router-link>
+              <span v-if="address == tx.publisher">{{tx.from}}</span>
+              <router-link v-else-if="tx.publisher !='_Block_Base'" :to="{path:`/account/${tx.publisher}`}">{{tx.publisher}}</router-link>
               <a v-else href="javascript:void(0)">{{tx.from}}</a>
             </li>
-            <li>
-              <img v-if="tx.state == 0" src="/static/img/failure.png" alt="">
-              <img v-else src="/static/img/success.png" alt="">
-            </li>
-            <li>
-              <router-link :to="{path:`/account/${tx.to}`}">{{tx.to}}...</router-link>
-            </li>
             <li>{{tx.age}}</li>
-            <li>{{tx.amount/100000000}} IOST</li>
           </ul>
         </div>
       </div>
@@ -224,9 +213,7 @@
             }
           }
         }
-
       }
-
     }
 
     .txns-list {

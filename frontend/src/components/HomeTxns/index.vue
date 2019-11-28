@@ -7,30 +7,22 @@
       <router-link to="/txs">View All</router-link >
     </div>
     <ul class="my-list-body">
-      <li v-for="(txn, index) in indexTxnList" :key="index">
-        <div class="my-list-wrap">
-          <div class="list-block">
-            <img src="/static/img/txns.png" alt="">
-            <p>Tx</p>
-          </div>
-          <div class="list-tx">
-            <p>TX#</p>
-            <router-link :to="{path:`/tx/${txn.txHash}`}">{{txn.txHash}}</router-link>
-          </div>
-          <div class="list-from">
-            <p>From</p>
-            <router-link v-if="txn.from !='_Block_Base'" :to="{path:`/account/${txn.from}`}">{{txn.from}}</router-link>
-            <a v-else href="javascript:void(0)">{{txn.from}}</a>
-          </div>
-          <div class="list-to">
-            <p>To</p>
-            <router-link :to="{path:`/account/${txn.to}`}">{{txn.to}}</router-link>
-          </div>
-          <div class="list-amount">
-            <p>Amount</p>
-            <p>{{txn.amount/100000000}} IOST</p>
-          </div>
-        </div>
+      <li my-list-wrap v-for="(txn, index) in indexTxnList" :key="index">
+        <p>
+          <img src="/static/img/txns.png" alt="">
+          Tx#: 
+          <router-link :to="{path:`/tx/${txn.txHash}`}">{{txn.txHash}}</router-link>
+        </p>
+        <p>Publisher:
+          <router-link v-if="txn.publisher !='_Block_Base'" :to="{path:`/account/${txn.publisher}`}">{{txn.publisher}}</router-link>
+          <a v-else href="javascript:void(0)">{{txn.publisher}}</a>
+        </p>
+        <p>Status: 
+          {{txn.receipt.status_code}}
+        </p>
+        <p>TimeStamp: 
+          {{txn.age}}({{txn.utcTime}})
+        </p>
       </li>
     </ul>
   </div>
@@ -68,7 +60,7 @@
     box-shadow: 0 10px 40px 0 rgba(0, 0, 0, .1);
     .my-list-banner {
       background: #F6F7F8;
-      padding: 0 30px;
+      padding: 0 10px 0 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -94,87 +86,77 @@
 
       li {
         list-style: none;
-        padding: 16px 0 22px 30px;
+        text-align: left;
+        padding: 10px 10px 10px 10px;
+        line-height: 1;
+        > p{
+          /*font-size: 12px;*/
+          font-size: 12px;
+          line-height: 12px;
+          color: #2C2E31;
+          margin-bottom: 5px;
+          padding-left: 0px;
+          > img {
+            width: 24px;
+            height: 24px;
+          }
+          > a{
+            padding-left: 5px;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: bold;
+            color: #4b78aa;
+          }
+          &:nth-of-type(1) {
+            display: flex;
+            padding-left: 0;
+            align-items: center;
+            padding-bottom: 5px;
+          }
+          &:nth-of-type(2) {
+            margin-top: 5px;
+          }
+          &:nth-of-type(3) {
+            margin-top: 5px;
+          }
+        }
+        > a {
+          display: inline-block;
+          color: #4b78aa;
+          padding-left: 50px;
+          padding-top: 14px;
+          /*font-size: 12px;*/
+          font-size: 14px;
+          line-height: 12px;
+
+          &:first-of-type {
+            width: 380px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+          &:nth-of-type(2) {
+            width: 380px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
         &:nth-child(2n) {
           background: #F6F7F8;
-          .my-list-wrap {
-            .list-block {
+          > p {
+            &:nth-of-type(1) {
               border-bottom: 1px solid #FFFFFF;
             }
           }
         }
         &:nth-child(2n+1) {
           background: #FFFFFF;
-          .my-list-wrap {
-            .list-block {
+          > p {
+            &:nth-of-type(1) {
               border-bottom: 1px solid #f6f7f8;
             }
           }
         }
-        .my-list-wrap {
-          text-align: left;
-          > div {
-            display: flex;
-            align-items: center;
-            &.list-block {
-              padding-bottom: 6px;
-              > img {
-                width: 24px;
-                height: 24px;
-              }
-              > p {
-                font-size: 14px;
-                line-height: 18px;
-                font-weight: bold;
-                color: #2C2E31;
-                margin-top: 4px;
-                margin-bottom: 0;
-                /*padding-left: 26px;*/
-                padding-left: 38px;
-              }
-            }
-            &.list-tx {
-              padding-top: 9px;
-            }
-            &.list-tx, &.list-from, &.list-to {
-              justify-content: space-between;
-              padding-bottom: 14px;
-              /*padding-right: 41px;*/
-              padding-right: 32px;
-              > a {
-                /*font-size: 12px;*/
-                font-size: 14px;
-                line-height: 15px;
-                color: #4b78aa;
-                display: inline-block;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                width: 360px;
-              }
-              > p {
-                /*font-size: 12px;*/
-                font-size: 14px;
-                line-height: 15px;
-                color: #2C2E31;
-                margin-bottom: 0;
-              }
-            }
-            &.list-amount {
-              > p {
-                /*font-size: 12px;*/
-                font-size: 14px;
-                line-height: 15px;
-                color: #2C2E31;
-                margin-bottom: 0;
-                &:nth-child(2) {
-                  margin-left: 4px;
-                }
-              }
-            }
-          }
-        }
       }
-
     }
   }
   @media screen and (max-width:480px) {

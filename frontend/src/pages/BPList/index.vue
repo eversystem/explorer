@@ -3,7 +3,7 @@
     <div class="BPList-header">
       <div class="my-header-container">
         <div class="BPList-header-info">
-          <h1>BPList</h1>
+          <h1>Block Producer List</h1>
           <h4>showing total {{bpList.length}} BPs</h4>
         </div>
       </div>
@@ -66,7 +66,7 @@
       background: #F6F7F8;
       box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
       .my-header-container {
-        height: 120px;
+        height: 70px;
         width: 1000px;
         margin: 0 auto;
         display: flex;

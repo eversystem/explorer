@@ -14,10 +14,6 @@
         <div class="card-body">
           <table class="table">
             <tr>
-              <th>All:</th>
-              <td>{{txnDetail}}</td>
-            </tr>
-            <tr>
               <th>Block Height:</th>
               <td>
                 <router-link
@@ -26,108 +22,33 @@
               </td>
             </tr>
             <tr>
+              <th>Publisher:</th>
+              <td><a href="javascript:void(0)">{{txnDetail.publisher}}</a></td>
+            </tr>
+            <tr>
               <th>TimeStamp:</th>
               <td>{{txnDetail.age}}({{txnDetail.utcTime}})</td>
             </tr>
             <tr>
-              <th>From:</th>
-              <td>
-                <router-link
-                  v-if="txnDetail.from !='_Block_Base'"
-                  :to="{path:`/account/${txnDetail.from}`}"
-                >{{txnDetail.from}}</router-link>
-                <a v-else href="javascript:void(0)">{{txnDetail.from}}</a>
-              </td>
-            </tr>
-            <tr>
-              <th>To:</th>
-              <td>
-                <router-link :to="{path:`/account/${txnDetail.to}`}">{{txnDetail.to}}</router-link>
-              </td>
-            </tr>
-            <tr>
-              <th>Amount:</th>
-              <td>{{txnDetail.amount}}</td>
+              <th>Signers:</th>
+              <td>{{txnDetail.signers}}</td>
             </tr>
             <tr>
               <th>Gas Limit:</th>
               <td>{{txnDetail.gasLimit}}</td>
             </tr>
             <tr>
-              <th>Gas Price:</th>
-              <td>{{txnDetail.price}}</td>
+              <th>ReferredTx:</th>
+              <td>{{txnDetail.referredTx}}</td>
             </tr>
             <tr>
-              <th>Signers:</th>
-              <td>{{txnDetail.signers}}</td>
+              <th>AmountLimit:</th>
+              <td>{{txnDetail.amountLimit}}</td>
             </tr>
+          </table>
+        </div>
+      </div>
 
-            <tr>
-              <th>Contract:</th>
-              <td>{{txnDetail.contract}}</td>
-            </tr>
-            <tr>
-              <th>ActionName：</th>
-              <td>
-                {{txnDetail.actionName}}
-              </td>
-            </tr>
-            <tr>
-              <th>Memo:</th>
-              <td>{{txnDetail.memo}}</td>
-            </tr>
-            <tr>
-              <th>Value:</th>
-              <td>{{txnDetail.amount}} IOST</td>
-            </tr>
-            <tr>
-              <th>Code</th>
-              <pre>{{txnDetail.code}}</pre>
-            </tr>
-            <tr>
-              <th>data:</th>
-              <td>{{txnDetail.data}}</td>
-            </tr>
-            <tr>
-              <th>Status:</th>
-              <td>{{txnDetail.statusCode}}</td>
-            </tr>
-            <tr>
-              <th>StatusMessage:</th>
-              <td>{{txnDetail.statusMessage}}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h5>Actions:</h5>
-        </div>
-        <div class="card-body">
-          <table class="table">
-            <th>
-              Contract:
-            </th>
-            <th>
-              Interface:
-            </th>
-            <th>
-              Data:
-            </th>
-            <tr v-for="action in txnDetail.actions">
-              <td>
-                {{action.contract}}
-              </td>
-              <td>
-                {{action.action_name}}
-              </td>
-              <td>
-                {{action.data}}
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
       <div class="card">
         <div class="card-header">
           <h5>Receipt:</h5>
@@ -147,16 +68,16 @@
               <td>{{txnDetail.receipt.ram_usage}}</td>
             </tr>
             <tr>
-              <th>StatusCode:</th>
+              <th>Returns:</th>
+              <td>{{txnDetail.receipt.returns}}</td>
+            </tr>
+            <tr>
+              <th>Status:</th>
               <td>{{txnDetail.receipt.status_code}}</td>
             </tr>
             <tr>
               <th>Message:</th>
               <td>{{txnDetail.receipt.message}}</td>
-            </tr>
-            <tr>
-              <th>Returns:</th>
-              <td>{{txnDetail.receipt.returns}}</td>
             </tr>
           </table>
           <table class="table">
@@ -176,6 +97,35 @@
             </tr>
           </table>
         </div>
+        <div class="card">
+          <div class="card-header">
+            <h5>Actions:</h5>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <th>
+                Contract:
+              </th>
+              <th>
+                Function:
+              </th>
+              <th>
+                Data:
+              </th>
+              <tr v-for="action in txnDetail.actions">
+                <td>
+                  {{action.contract}}
+                </td>
+                <td>
+                  {{action.action_name}}
+                </td>
+                <td>
+                  {{action.data}}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>        
       </div>
     </div>
   </div>

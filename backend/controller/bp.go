@@ -16,6 +16,7 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"os"
 
 	"github.com/iost-official/explorer/backend/model/blockchain"
 
@@ -24,11 +25,12 @@ import (
 	"github.com/spf13/viper"
 )
 
-const HOST = "172.31.11.131";
+/*
 const (
-	chainInfoUrl    = `http://${HOST}:30001/getChainInfo`
-	chainStorageUrl = `http://${HOST}:30001/getContractStorage`
+	chainInfoUrl    = "http://" + HOST + ":30001/getChainInfo"
+	chainStorageUrl = "http://" + HOST + ":30001/getContractStorage"
 )
+*/
 
 type chainInfo struct {
 	WitnessList    []string `json:"witness_list"`
@@ -256,6 +258,8 @@ func GetBPList(c echo.Context) error {
 }
 
 func getWitnessList() (witnessList, libWitnessList []string, err error) {
+	var host = os.Getenv("HOST") //"172.31.11.131";
+	var chainInfoUrl    = "http://" + host + ":30001/getChainInfo"
 	resp, err := bpClient.Get(chainInfoUrl)
 	if err != nil {
 		return
@@ -288,6 +292,8 @@ func getBPAccount(pubKey string) (*accountInfo, error) {
 		return nil, err
 	}
 
+	var host = os.Getenv("HOST") //"172.31.11.131";
+	var chainStorageUrl = "http://" + host + ":30001/getContractStorage"
 	req, err := http.NewRequest("POST", chainStorageUrl, bytes.NewBuffer(queryStr))
 	if err != nil {
 		return nil, err
@@ -329,6 +335,8 @@ func getBPAccountDetail(account string) (*BPAccountDetail, error) {
 		return nil, err
 	}
 
+	var host = os.Getenv("HOST") //"172.31.11.131";
+	var chainStorageUrl = "http://" + host + ":30001/getContractStorage"
 	req, err := http.NewRequest("POST", chainStorageUrl, bytes.NewBuffer(queryStr))
 	if err != nil {
 		return nil, err

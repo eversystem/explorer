@@ -17,19 +17,19 @@
           <li class="my-nav-item" v-show="!isShow" :class="{active: currentColor == 2}">
             <router-link to="/txs">TRANSACTION</router-link>
           </li>
-          <li class="my-nav-item" :class="{active: currentColor == 2}">
+          <li class="my-nav-item" :class="{active: currentColor == 3}">
             <router-link to="/accounts">ACCOUNT</router-link>
           </li>
-          <li class="my-nav-item" :class="{active: currentColor == 2}">
+          <li class="my-nav-item" :class="{active: currentColor == 4}">
             <router-link to="/applyIOST">ApplyAccount</router-link>
           </li>
-          <li class="my-nav-item" :class="{active: currentColor == 2}">
+          <li class="my-nav-item" :class="{active: currentColor == 5}">
             <router-link to="/feedback">Feedback</router-link>
           </li>
-          <li class="my-nav-item" :class="{active: currentColor == 2}">
+          <li class="my-nav-item" :class="{active: currentColor == 6}">
             <router-link to="/BPList">Producers</router-link>
           </li>
-          <li class="my-nav-item" :class="{active: currentColor == 2}">
+          <li class="my-nav-item" :class="{active: currentColor == 7}">
             <router-link to="/bonusWithdraw">Bonus</router-link>
           </li>
 
@@ -55,19 +55,19 @@
             <li class="mobile-nav-item" :class="{active: currentColor == 2}">
               <router-link to="/txs">TRANSACTION</router-link>
             </li>
-            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+            <li class="mobile-nav-item" :class="{active: currentColor == 3}">
               <router-link to="/accounts">ACCOUNT</router-link>
             </li>
-            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+            <li class="mobile-nav-item" :class="{active: currentColor == 4}">
               <router-link to="/applyIOST">ApplyAccount</router-link>
             </li>
-            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+            <li class="mobile-nav-item" :class="{active: currentColor == 5}">
               <router-link to="/feedback">Feedback</router-link>
             </li>
-            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+            <li class="mobile-nav-item" :class="{active: currentColor == 6}">
               <router-link to="/BPList">Producers</router-link>
             </li>
-            <li class="mobile-nav-item" :class="{active: currentColor == 2}">
+            <li class="mobile-nav-item" :class="{active: currentColor == 7}">
               <router-link to="/bonusWithdraw">Bonus</router-link>
             </li>
 
@@ -104,7 +104,7 @@
     },
     watch: {
       '$route' (to) {
-        const arr = ['/block','/tx','/account','/applyIOST','/feedback','/search','404']
+        const arr = ['/block','/tx','/account','/applyIOST','/feedback','/BPList','/bonusWithdraw','/search','404']
         let arr2 = arr.filter((a, index) => {
           return to.path.search(a)+1
         })
@@ -124,11 +124,17 @@
         } else if (result == '/feedback') {
           this.currentColor = 5
           this.currentTheme = false
-        } else if (result == '/search') {
+        } else if (result == '/BPList') {
           this.currentColor = 6
           this.currentTheme = false
-        } else if (result == '404') {
+        } else if (result == '/bonusWithdraw') {
+          this.currentColor = 7
+          this.currentTheme = false
+        } else if (result == '/search') {
           this.currentColor = 8
+          this.currentTheme = false
+        } else if (result == '404') {
+          this.currentColor = 9
           this.currentTheme = false
         } else {
           this.currentColor = 0
@@ -208,7 +214,7 @@
 
     // 为了在当前页刷新之后，依旧保持当前状态
     created () {
-      const arr = ['/','/block','/tx','/account','/applyIOST','/feedback','/search']
+      const arr = ['/','/block','/tx','/account','/applyIOST','/feedback','/search','/BPList','/bonusWidthdraw']
       let arr2 = arr.filter((a, index) => {
         return location.pathname.search(a)+1
       })
@@ -232,11 +238,17 @@
         this.currentColor = 5
       }else if (result == '/search') {
         this.currentColor = 6
+      } else if (result == '/BPList') {
+        this.currentColor = 7
+        this.currentTheme = false
+      } else if (result == '/bonusWithdraw') {
+        this.currentColor = 8
+        this.currentTheme = false
       }
 
       // 404页面
       if (location.pathname != result) {
-        this.currentColor = 8
+        this.currentColor = 9
         this.currentTheme = false
       }
 
@@ -256,12 +268,14 @@
     height: 90px;
     display: flex;
     z-index: 100;
-    background: #2c2e31;
+    background: #2149A7;
+/*    background: #2c2e31; */
     box-shadow: 0 2px 3px rgba(0,0,0, 0.1);
     border: 1px solid #2c2e31;
     &.active {
-      background-color: rgba(44,46,49, 0.5);
-    }
+      background-color:#2149A7 
+/*      background-color: rgba(44,46,49, 0.5); */
+   }
     .my-container{
       width: 1000px;
       height: 100%;
