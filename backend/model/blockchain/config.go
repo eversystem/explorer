@@ -2,6 +2,7 @@ package blockchain
 
 import (
 	"fmt"
+	"os"
 	"github.com/iost-official/explorer/backend/util"
 	"github.com/spf13/viper"
 )
@@ -13,6 +14,8 @@ var (
 )
 
 func InitConfig() {
+	var host = os.Getenv("HOST") //"172.31.11.131";
+	RPCAddress    = "http://" + host + ":30002"
 	RPCAddress = viper.GetString("rpcHost")
 	BPRegisterPassword = viper.GetString("BPRegisterPassword")
 	fmt.Println("RPCHost:", RPCAddress)
