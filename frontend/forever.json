@@ -3,7 +3,7 @@
     "pidPath": "/home/ubuntu/.forever/pids",
     "sockPath": "/home/ubuntu/.forever/sock",
     "uid":"ATS-explorer",
-    "sourceDir": "/home/ubuntu/bc/explorer/build",
+    "sourceDir": "/home/ubuntu/bc/explorer/frontend/build",
     "script": "dev-server.js --open",
     "append": true,
     "loglength": 100,
