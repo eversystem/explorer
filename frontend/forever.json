@@ -1,0 +1,21 @@
+{
+    "root": "/home/ubuntu/.forever",
+    "pidPath": "/home/ubuntu/.forever/pids",
+    "sockPath": "/home/ubuntu/.forever/sock",
+    "uid":"ATS-explorer",
+    "sourceDir": "/home/ubuntu/bc/explorer/",
+    "script": "build/dev-server.js --open",
+    "append": true,
+    "loglength": 100,
+    "logstream": false,
+    "columns": [
+      "uid",
+      "command",
+      "script",
+      "forever",
+      "pid",
+      "id",
+      "logfile",
+      "uptime"
+   ]
+  }
