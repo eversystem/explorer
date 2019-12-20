@@ -107,6 +107,7 @@ export default new Router({
         Foot: Foot
       }
     },
+    /*
     {
       path: '/applyIOST',
       name: 'ApplyIOST',
@@ -134,6 +135,7 @@ export default new Router({
         Foot: Foot
       }
     },
+    */
     {
       path: '/BPList',
       name: 'BPList',
@@ -143,6 +145,7 @@ export default new Router({
         Foot: Foot
       }
     },
+    /*
     {
       path: '/bonusWithdraw',
       name: 'bonusWithdraw',
@@ -152,6 +155,7 @@ export default new Router({
         Foot: Foot
       }
     },
+    */
     {
       path: '*',
       name: '404',
