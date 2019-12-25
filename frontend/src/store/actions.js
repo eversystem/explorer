@@ -60,7 +60,14 @@ export default {
   async getAccountDetail ({commit}, address) {
     const { data } = await axios.get(`${apis.account}${address}`)
     if(data.code == 0){
-      commit(types.ACCOUNTDETAIL, {accountDetail: data.data})
+      commit(types.CONTRACTDETAIL, {contractDetail: data.data})
+    }
+  },
+
+  async getContractDetail ({commit}, address) {
+    const { data } = await axios.get(`${apis.account}${address}`)
+    if(data.code == 0){
+      commit(types.CONTRACTDETAIL, {contractDetail: data.data})
     }
   },
 

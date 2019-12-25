@@ -16,6 +16,10 @@ const types = {
   ACCOUNTDETAIL: 'accountDetail',
   ACCOUNTTXNINFO: 'accountTxnInfo',
 
+  CONTRACTINFO: 'contractInfo',
+  CONTRACTDETAIL: 'contractDetail',
+  CONTRACTTXNINFO: 'contractTxnInfo',
+
 }
 
 export default types

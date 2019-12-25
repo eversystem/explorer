@@ -15,4 +15,7 @@ export default {
   accountDetail: {},
   accountTxnInfo: {},
 
+  contractInfo: {},
+  contractDetail: {},
+  contractTxnInfo: {},
 }
