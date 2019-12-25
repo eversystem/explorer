@@ -1,17 +1,8 @@
 package controller
 
 import (
-	"bytes"
-	"encoding/json"
 	"errors"
-	"fmt"
-	"io/ioutil"
-	"log"
 	"net/http"
-	"os/exec"
-	"reflect"
-	"regexp"
-	"sort"
 	"strconv"
 	"strings"
 	"sync"
@@ -33,17 +24,10 @@ const (
 */
 
 var (
-	bpClient           *http.Client
 	errContracttNotExist = errors.New("contract not exists")
 )
 
 func init() {
-	bpClient = &http.Client{
-		Timeout: time.Second * 5,
-		Transport: &http.Transport{
-			MaxIdleConns: 5,
-		},
-	}
 }
 
 func getContractDetail(id string) (*rpcpb.Contract, error) {
