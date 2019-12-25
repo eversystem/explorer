@@ -3,7 +3,7 @@
 
     <div class="accountDetail-header">
       <div class="my-header-container">
-        <h1>Address</h1>
+        <h1>Contract</h1>
         <p>{{address}}</p>
       </div>
     </div>
@@ -12,72 +12,10 @@
     <div class="accountDetail-info">
       <div class="accountDetail-tips">
         <img src="/static/img/iostWhite.png" alt="">
-        <div class="accountDetail-height-value">
-          <div class="accountDetail-height">
-            <h4>Balance:</h4>
-            <p v-if="accountDetail.balance">{{(accountDetail.balance/100000000).toFixed(2)}}</p>
-            <p v-else>0.00</p>
-          </div>
-          <div class="accountDetail-value">
-            <h4>IOST Value:</h4>
-            <p v-if="accountDetail.value">{{accountDetail.value.toFixed(2)}}</p>
-            <p v-else>0.00</p>
-          </div>
-        </div>
       </div>
 
-      <ul class="my-tab">
-        <li :class="{active: currentTab}" @click="goTab(1)">Transactions</li>
-        <li v-show="showContractCode" :class="{active: !currentTab}" @click="goTab(2)">Contract Code</li>
-      </ul>
-
       <div class="my-tab-content">
-        <div class="my-tab-pane1" v-if="!currentTab">
-          <div class="pane1-header">
-            <p class="pane1-title">{{accountTxnInfo.txnLen}}</p>
-            <div class="pane1-content">
-              <p>
-                Latest 25 txns from a total Of
-                <router-link :to="{path:`/txs?a=${address}`}">{{accountTxnInfo.txnLen}} transactions</router-link>
-              </p>
-              <p>
-                <router-link :to="{path:`/txs?a=${address}`}">View All</router-link>
-              </p>
-            </div>
-          </div>
-
-          <div class="accountDetail-list">
-            <ul class="my-list-header">
-              <li>Height</li>
-              <li>TxHash</li>
-              <li>From</li>
-              <li>To</li>
-              <li>Age</li>
-              <li>Value</li>
-              <li>[TxFee]</li>
-            </ul>
-            <div class="list-wrap">
-              <div class="list-body-wrap" v-for="tx in accountTxnInfo.txnList">
-                <ul class="my-list-body">
-                  <li><router-link :to="{path:`/block/${tx.blockNumber}`}">{{tx.blockNumber}}</router-link></li>
-                  <li><router-link :to="{path:`/tx/${tx.hash}`}">{{tx.hash}}...</router-link></li>
-                  <li>
-                    <router-link v-if="tx.from !='_Block_Base'" :to="{path:`/account/${tx.from}`}">{{tx.from}}</router-link>
-                    <a v-else href="javascript:void(0)">{{tx.from}}</a>
-                  </li>
-                  <li><router-link :to="{path:`/account/${tx.to}`}">{{tx.to}}</router-link></li>
-                  <li>{{tx.age}}</li>
-                  <li>{{tx.amount}}</li>
-                  <li>{{tx.gasPrice}}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="my-tab-pane2" v-else>
+        <div class="my-tab-pane2">
           <div class="pane2-tips1">
             <h4>Publisher:</h4>
             <p>{{ContractInfo.from}}</p>
