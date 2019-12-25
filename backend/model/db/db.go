@@ -3,6 +3,7 @@ package db
 import (
 	"log"
 	"time"
+	"fmt"
 
 	"github.com/globalsign/mgo"
 	"github.com/iost-official/explorer/backend/util/transport"
@@ -11,6 +12,7 @@ import (
 func GetDb() (*mgo.Database, error) {
 	var err error
 	var mongoClient *mgo.Session
+	fmt.Printf("MongoUser:%s MongoPassWord:%s\n", MongoUser, MongoPassWord)
 
 	if MongoUser == "" && MongoPassWord == "" {
 		mongoClient, err = transport.GetMongoClient(MongoLink, Db)

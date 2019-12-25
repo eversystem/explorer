@@ -12,12 +12,12 @@ import Tx from '../pages/TxnsDetail'
 import Accounts from '../pages/Accounts'
 import AccountDetail from '../pages/AccountDetail'
 import Search from '../pages/Search'
-import ApplyIOST from '../pages/ApplyIOST'
-import ApplyIOSTSuccess from '../pages/ApplyIOSTSuccess'
+//import ApplyIOST from '../pages/ApplyIOST'
+//import ApplyIOSTSuccess from '../pages/ApplyIOSTSuccess'
 import NotFound404 from '../pages/404'
-import Feedback from '../pages/Feedback'
+//import Feedback from '../pages/Feedback'
 import BPList from '../pages/BPList'
-import Bonus from '../pages/Bonus'
+//import Bonus from '../pages/Bonus'
 
 Vue.use(Router)
 

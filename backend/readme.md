@@ -1,6 +1,10 @@
 Iost explorer backend
 ======
 
+j-LOD STG
+  "rpcHost": "172.31.43.158:30002",
+
+
 
 ### Requirements 
 
@@ -18,13 +22,13 @@ Iost explorer backend
 ```bash
 cd backend/task
 make
-nohup ./task &
+nohup ./explorer-task &
 ```
 4. Run REST api service
 ```bash
 cd backend
 make
-nohup ./backend &
+nohup ./explorer &
 ```
 
 

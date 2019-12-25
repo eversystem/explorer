@@ -39,7 +39,7 @@ const (
 func InitConfig() {
 	dbConfig := viper.GetStringMapString("mongodb")
 	Db = dbConfig["db"]
-	MongoUser = dbConfig["username"]
+	MongoUser = dbConfig["user"]
 	MongoPassWord = dbConfig["password"]
 	//MongoLink = fmt.Sprintf("%s:%s", dbConfig["host"], dbConfig["port"])
 	MongoLink = dbConfig["mongolink"]

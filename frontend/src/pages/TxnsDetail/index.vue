@@ -114,7 +114,7 @@
               </th>
               <tr v-for="action in txnDetail.actions">
                 <td>
-                  {{action.contract}}
+                  <router-link :to="{path:`/account/${action.contract}`}">{{action.contract}}</router-link>
                 </td>
                 <td>
                   {{action.action_name}}
