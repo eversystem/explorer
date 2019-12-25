@@ -105,7 +105,7 @@
   const { apis } = config
 
   export default {
-    name: "AccountDetail",
+    name: "ContractDetail",
     data() {
       return {
         address: this.$route.params.id,
