@@ -99,6 +99,15 @@ export default new Router({
       }
     },
     {
+      path: '/contract/:id',
+      name: 'ContractDetail',
+      components: {
+        Head: Head,
+        Main: ContractDetail,
+        Foot: Foot
+      }
+    },
+    {
       path: '/search/:id',
       name: 'ExplorerSearch',
       components: {
