@@ -2,18 +2,9 @@ package controller
 
 import (
 	"errors"
-	"net/http"
-	"strconv"
-	"strings"
-	"sync"
-	"time"
-	"os"
 
 	"github.com/iost-official/explorer/backend/model/blockchain"
-
-	"github.com/iost-official/explorer/backend/model/db"
-	"github.com/labstack/echo"
-	"github.com/spf13/viper"
+	"github.com/iost-official/explorer/backend/model/blockchain/rpcpb"
 )
 
 /*
