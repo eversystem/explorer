@@ -82,7 +82,7 @@
         //   this.txnLen = response.data.txn_len
         // })
 
-        this.addressx = this.address.replace('Contract','')
+        // this.addressx = this.address.replace('Contract','')
         // axios.get('https://127.0.0.1/api/contracts/' + this.address).then((response) => {
         axios.get(`${apis.contract}${this.id}`).then((response) => {
           if (response.data.code == 1) {

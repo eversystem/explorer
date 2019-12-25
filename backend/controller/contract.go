@@ -32,17 +32,6 @@ const (
 )
 */
 
-type ContractDetail struct {
-	Name       string `json:"name"`
-	Pubkey     string `json:"pubkey"`
-	Loc        string `json:"loc"`
-	Url        string `json:"url"`
-	NetId      string `json:"netId"`
-	IsProducer bool   `json:"isProducer"`
-	Status     int    `json:"status"`
-	Online     bool   `json:"online"`
-}
-
 var (
 	bpClient           *http.Client
 	errContracttNotExist = errors.New("contract not exists")
