@@ -18,7 +18,7 @@
         <div class="my-tab-pane2">
           <div class="pane2-tips1">
             <h4>Publisher:</h4>
-            <p>{{ContractInfo.from}}</p>
+            <p>{{ContractInfo}}</p>
             <!--<p>fsdfsdfdffsdfsfasfasfsdf</p>-->
           </div>
           <div class="pane2-tips2">
@@ -46,13 +46,12 @@
     name: "ContractDetail",
     data() {
       return {
-        address: this.$route.params.id,
-        addressx: "",
+        id: this.$route.params.id,
         // account: {},
-        txnList: {},
-        txnLen: '',
+        // txnList: {},
+        // txnLen: '',
         ContractInfo: {},
-        currentTab: false,
+        // currentTab: false,
         isShow: false,   // 当接口code返回1时，切换方法不执行
       }
     },
@@ -70,9 +69,9 @@
       fetchData(r) {
         this.address = r.params.id
 
-        this.$store.dispatch('getAccountDetail', this.address)
+        //this.$store.dispatch('getAccountDetail', this.address)
 
-        this.$store.dispatch('getAccountTxnInfo', this.address)
+        //this.$store.dispatch('getAccountTxnInfo', this.address)
 
 
         // axios.get('https://127.0.0.1/api/account/' + this.address).then((response) => {
@@ -84,46 +83,15 @@
         // })
 
         this.addressx = this.address.replace('Contract','')
-        // axios.get('https://127.0.0.1/api/tx/' + this.address).then((response) => {
-        axios.get(`${apis.tx}${this.addressx}`).then((response) => {
+        // axios.get('https://127.0.0.1/api/contracts/' + this.address).then((response) => {
+        axios.get(`${apis.contract}${this.id}`).then((response) => {
           if (response.data.code == 1) {
             this.isShow = true
             return
           }
-
-          // let blkDate = new Date(response.data.time / 1000 / 1000)
-          let blkDate = new Date(response.data.data.utcTime)
-          let time = ''
-          time += blkDate.getFullYear() + '-'
-          time += (blkDate.getMonth()+1 < 10 ? '0'+(blkDate.getMonth()+1) : blkDate.getMonth()+1) + '-'
-          time += blkDate.getDate() + ' ';
-          if (blkDate.getHours() < 10) {
-            time += '0' + blkDate.getHours()
-          } else {
-            time += blkDate.getHours()
-          }
-          if (blkDate.getMinutes() < 10) {
-            time += ':0' + blkDate.getMinutes()
-          } else {
-            time += ':' + blkDate.getMinutes()
-          }
-          if (blkDate.getSeconds() < 10) {
-            time += ':0' + blkDate.getSeconds()
-          } else {
-            time += ':' + blkDate.getSeconds()
-          }
-          response.data.data.time = time
           this.ContractInfo = response.data.data
         })
       },
-
-      goTab (num) {
-        if (num == 1) {
-          this.currentTab = false
-        } else {
-          this.currentTab = true
-        }
-      }
     },
 
     watch: {

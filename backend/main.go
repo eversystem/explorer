@@ -36,6 +36,9 @@ func main() {
 	e.GET("/api/account/:id", controller.GetAccountDetail)
 	e.GET("/api/account/:id/txs", controller.GetAccountTxs)
 
+	// contract
+	e.GET("/api/contract/:id", controller.GetContractDetail)
+
 	// search
 	e.GET("/api/search/:id", controller.GetSearch)
 

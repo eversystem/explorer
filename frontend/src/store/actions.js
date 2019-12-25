@@ -64,17 +64,17 @@ export default {
     }
   },
 
-  async getContractDetail ({commit}, address) {
-    const { data } = await axios.get(`${apis.account}${address}`)
-    if(data.code == 0){
-      commit(types.CONTRACTDETAIL, {contractDetail: data.data})
-    }
-  },
-
   async getAccountTxnInfo ({commit}, address) {
     const { data } = await axios.get(`${apis.account}${address}/txs`)
     if(data.code == 0){
       commit(types.ACCOUNTTXNINFO, {accountTxnInfo: data.data})
+    }
+  },
+
+  async getContractDetail ({commit}, id) {
+    const { data } = await axios.get(`${apis.contract}${id}`)
+    if(data.code == 0){
+      commit(types.CONTRACTDETAIL, {contractDetail: data.data})
     }
   },
 }
