@@ -20,17 +20,11 @@
           <li class="my-nav-item" :class="{active: currentColor == 3}">
             <router-link to="/accounts">ACCOUNT</router-link>
           </li>
-          <li class="my-nav-item" :class="{active: currentColor == 4}">
-            <router-link to="/applyIOST">ApplyAccount</router-link>
-          </li>
-          <li class="my-nav-item" :class="{active: currentColor == 5}">
-            <router-link to="/feedback">Feedback</router-link>
-          </li>
           <li class="my-nav-item" :class="{active: currentColor == 6}">
-            <router-link to="/BPList">Producers</router-link>
+            <router-link to="/BPList">PRODUCERS</router-link>
           </li>
           <li class="my-nav-item" :class="{active: currentColor == 7}">
-            <router-link to="/bonusWithdraw">Bonus</router-link>
+            <router-link to="/bonusWithdraw">BONUS</router-link>
           </li>
 
           <li class="my-nav-item searchActive" v-show="isShow">

@@ -18,7 +18,7 @@ import Search from '../pages/Search'
 import NotFound404 from '../pages/404'
 //import Feedback from '../pages/Feedback'
 import BPList from '../pages/BPList'
-//import Bonus from '../pages/Bonus'
+import Bonus from '../pages/Bonus'
 
 Vue.use(Router)
 
@@ -155,7 +155,6 @@ export default new Router({
         Foot: Foot
       }
     },
-    /*
     {
       path: '/bonusWithdraw',
       name: 'bonusWithdraw',
@@ -165,7 +164,6 @@ export default new Router({
         Foot: Foot
       }
     },
-    */
     {
       path: '*',
       name: '404',

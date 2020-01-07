@@ -2,9 +2,11 @@ package controller
 
 import (
 	"errors"
+	"net/http"
 
 	"github.com/iost-official/explorer/backend/model/blockchain"
 	"github.com/iost-official/explorer/backend/model/blockchain/rpcpb"
+	"github.com/labstack/echo"
 )
 
 /*
@@ -21,6 +23,19 @@ var (
 func init() {
 }
 
-func getContractDetail(id string) (*rpcpb.Contract, error) {
-	return blockchain.GetContract(id, false)
+func GetContractDetail(c echo.Context) error {
+	id := c.Param("id")
+	if id == "" {
+		return errors.New("ContractId required")
+	}
+	contractInfo, err := blockchain.GetContract(id, false)
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, FormatResponse(struct {
+		*rpcpb.Contract
+	}{
+		contractInfo,
+	}))
 }

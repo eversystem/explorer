@@ -16,16 +16,16 @@
 
       <div class="my-tab-content">
         <div class="my-tab-pane2">
+          <!--
           <div class="pane2-tips1">
             <h4>Publisher:</h4>
-            <p>{{ContractInfo}}</p>
-            <!--<p>fsdfsdfdffsdfsfasfasfsdf</p>-->
+            <p></p>
           </div>
           <div class="pane2-tips2">
             <h4>Time:</h4>
             <p>{{ContractInfo.time}}</p>
-            <!--<p>2018-4-19</p>-->
           </div>
+          -->
           <div class="pane2-tips3">
             <h4>Code:</h4>
             <pre>{{ContractInfo.code}}</pre>
