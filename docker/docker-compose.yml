@@ -1,0 +1,27 @@
+version: '2.2'
+
+networks:
+  explorer:
+
+services:
+  frontend:
+    image: frontend:latest
+    container_name: front
+    ports:
+      - 8080:8080
+    command:
+    volumes: ~/explorer/frontend/dist:/var/www/html/frontend
+    networks:
+      - explorer
+
+  backend:
+    image: backend:latest
+    container_name: back
+    working_dir: /go/src/github.com/iost-official/explorer/backend
+    tty: true
+    networks:
+      - basic
+
+
+  reverse:
+

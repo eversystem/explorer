@@ -13,15 +13,9 @@ sudo yum install git
 echo "Installing go"
 git clone https://github.com/syndbg/goenv.git ~/.goenv
 
-echo "export GOENV_ROOT=$HOME/.goenv" >> ~/.bash_rc
-echo "export PATH=$GOENV_ROOT/bin:$PATH" >> ~/.bash_rc
-
-source ~/.bash_rc
-make
-echo "eval '$(goenv init -)'" >> ~/.bash_rc
-
-source ~/.bash_rc
-
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH 
+eval "$(goenv init -)"
 
 goenv install 1.11.4
 goenv global 1.11.4
@@ -53,6 +47,8 @@ npm install -g yarn
 
 sudo touch /etc/yum.repos.d/mongodb-org-4.2.repo
 
+sudo -i
+
 echo "[mongodb-org-4.2]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.2/x86_64/
@@ -60,6 +56,11 @@ gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc" > /etc/yum.repos.d/mongodb-org-4.2.repo
 
+exit
+
 sudo yum install -y mongodb-org
 
+
+echo "Notice: please export an environment variable HOST"
+echo "HOST should be v4 IP address of an IOST node"
 
