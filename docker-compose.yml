@@ -140,3 +140,4 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
     networks:
       - basic
+
