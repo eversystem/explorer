@@ -50,9 +50,9 @@ export default new Router({
       path: '/login',
       name: 'Login',
       components: {
-        Head: Head,
+        // Head: Head,
         Main: Login,
-        Foot: Foot
+        // Foot: Foot
       }
     },
     {
