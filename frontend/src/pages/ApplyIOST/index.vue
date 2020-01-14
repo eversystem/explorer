@@ -55,11 +55,10 @@
 </template>
 
 <script>
-import axiosWithJWT(). from 'axiosWithJWT().';
 import swal from 'sweetalert2'
 import base58 from 'bs58'
 import elliptic from 'elliptic'
-import { config } from '../../utils/config'
+import { config, axiosWithJWT } from '../../utils/config'
 
 const { apis } = config
 
@@ -182,7 +181,8 @@ export default {
 				dotNum++
 			}, 1000)
 
-			axiosWithJWT()..post(`${apis.applyIOST}`, this.getApplyParam(grecap)).then((response) => {
+			const token = window.localStorage.getItem('ex_token');
+			axiosWithJWT(token).post(`${apis.applyIOST}`, this.getApplyParam(grecap)).then((response) => {
 				let retCode = response.data.ret
 				let txHash = response.data.msg
 				if (retCode != 0) {

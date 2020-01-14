@@ -23,8 +23,7 @@
 
 <script>
 import swal from 'sweetalert2'
-import axiosWithJWT(). from 'axiosWithJWT().';
-import { config } from '../../utils/config'
+import { config, axiosWithJWT } from '../../utils/config'
 const { apis } = config
 
 export default {
@@ -66,7 +65,8 @@ export default {
 			params.append('content', this.content)
 
 			// axiosWithJWT()..post('https://127.0.0.1/api/feedback', params).then((response) => {
-			axiosWithJWT()..post(`${apis.search}`, params).then((response) => {
+			const token = window.localStorage.getItem("ex_token");
+			axiosWithJWT(token).post(`${apis.search}`, params).then((response) => {
           swal(
 				  'Feedback success!',
 				  '',

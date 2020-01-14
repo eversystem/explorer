@@ -84,7 +84,7 @@ app.use(
 
     const result: AxiosResponse | void = await axios({
       method,
-      url,
+      url: `backend:8088/api/${url}`,
       data: body
     }).catch((err: AxiosError) => {
       res.status(500).send("Internal Server Error");

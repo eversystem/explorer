@@ -74,3 +74,307 @@ https://echo.labstack.com
 ____________________________________O/_______
                                     O\
 ⇨ http server started on [::]:8088
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.main()
+	/go/src/github.com/iost-official/backend/task/task.go:13 +0x36
+mongolink api 
+RPCHost: 3.115.13.190:30002
+EOF
+mongolink api 
+RPCHost: 3.115.13.190:30002
+read /dev/stdin: bad file descriptor
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+mongolink api 
+RPCHost: 3.115.13.190:30002
+read /dev/stdin: bad file descriptor
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+2020/01/14 10:50:40 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 10:51:00 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 10:51:20 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 10:51:40 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 10:52:00 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+go build -o explorer main.go
+go: downloading github.com/labstack/echo v3.3.10+incompatible
+go: downloading github.com/spf13/viper v0.0.0-20180828220506-8addaed22d65
+go: extracting github.com/spf13/viper v0.0.0-20180828220506-8addaed22d65
+go: downloading github.com/hashicorp/hcl v1.0.0
+go: downloading github.com/spf13/pflag v0.0.0-20180821114517-d929dcbb1086
+go: downloading gopkg.in/yaml.v2 v2.2.2
+go: downloading github.com/mitchellh/mapstructure v1.0.0
+go: extracting github.com/labstack/echo v3.3.10+incompatible
+go: downloading github.com/spf13/afero v1.1.1
+go: downloading github.com/labstack/gommon v0.3.0
+go: downloading github.com/golang/protobuf v1.3.2
+go: extracting github.com/hashicorp/hcl v1.0.0
+go: downloading google.golang.org/grpc v1.24.0
+go: extracting github.com/mitchellh/mapstructure v1.0.0
+go: downloading golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
+go: extracting github.com/spf13/pflag v0.0.0-20180821114517-d929dcbb1086
+go: extracting gopkg.in/yaml.v2 v2.2.2
+go: extracting github.com/spf13/afero v1.1.1
+go: downloading github.com/magiconair/properties v1.8.0
+go: downloading github.com/pkg/errors v0.8.1
+go: downloading github.com/globalsign/mgo v0.0.0-20180828104044-6f9f54af1356
+go: downloading google.golang.org/genproto v0.0.0-20190502173448-54afdca5d873
+go: extracting github.com/labstack/gommon v0.3.0
+go: downloading github.com/dgrijalva/jwt-go v0.0.0-20180719211823-0b96aaa70776
+go: downloading golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
+go: extracting github.com/golang/protobuf v1.3.2
+go: downloading golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c
+go: extracting github.com/pkg/errors v0.8.1
+go: extracting github.com/magiconair/properties v1.8.0
+go: downloading github.com/mattn/go-isatty v0.0.9
+go: extracting github.com/dgrijalva/jwt-go v0.0.0-20180719211823-0b96aaa70776
+go: extracting golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
+go: downloading github.com/mattn/go-colorable v0.1.2
+go: downloading google.golang.org/api v0.11.0
+go: extracting github.com/mattn/go-isatty v0.0.9
+go: downloading golang.org/x/text v0.3.2
+go: extracting golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c
+go: extracting github.com/mattn/go-colorable v0.1.2
+go: downloading github.com/spf13/jwalterweatherman v0.0.0-20180814060501-14d3d4c51834
+go: downloading github.com/valyala/fasttemplate v1.1.0
+go: extracting github.com/spf13/jwalterweatherman v0.0.0-20180814060501-14d3d4c51834
+go: downloading github.com/spf13/cast v1.2.0
+go: extracting github.com/valyala/fasttemplate v1.1.0
+go: downloading github.com/fsnotify/fsnotify v1.4.7
+go: extracting github.com/spf13/cast v1.2.0
+go: extracting github.com/fsnotify/fsnotify v1.4.7
+go: downloading github.com/pelletier/go-toml v0.0.0-20180724185102-c2dbbc24a979
+go: downloading github.com/valyala/bytebufferpool v1.0.0
+go: extracting golang.org/x/text v0.3.2
+go: extracting github.com/valyala/bytebufferpool v1.0.0
+go: extracting github.com/pelletier/go-toml v0.0.0-20180724185102-c2dbbc24a979
+go: downloading golang.org/x/sys v0.0.0-20191010194322-b09406accb47
+go: downloading cloud.google.com/go v0.38.0
+go: extracting github.com/globalsign/mgo v0.0.0-20180828104044-6f9f54af1356
+go: extracting golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
+go: extracting google.golang.org/grpc v1.24.0
+go: extracting google.golang.org/genproto v0.0.0-20190502173448-54afdca5d873
+go: extracting golang.org/x/sys v0.0.0-20191010194322-b09406accb47
+go: extracting cloud.google.com/go v0.38.0
+go: extracting google.golang.org/api v0.11.0
+go: downloading go.opencensus.io v0.21.0
+go: downloading github.com/googleapis/gax-go/v2 v2.0.5
+go: extracting github.com/googleapis/gax-go/v2 v2.0.5
+go: extracting go.opencensus.io v0.21.0
+go: downloading github.com/hashicorp/golang-lru v0.5.1
+go: extracting github.com/hashicorp/golang-lru v0.5.1
+go: finding github.com/golang/protobuf v1.3.2
+go: finding google.golang.org/genproto v0.0.0-20190502173448-54afdca5d873
+go: finding google.golang.org/grpc v1.24.0
+go: finding golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c
+go: finding golang.org/x/sys v0.0.0-20191010194322-b09406accb47
+go: finding golang.org/x/text v0.3.2
+go: finding golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
+go: finding github.com/globalsign/mgo v0.0.0-20180828104044-6f9f54af1356
+go: finding github.com/spf13/viper v0.0.0-20180828220506-8addaed22d65
+go: finding github.com/fsnotify/fsnotify v1.4.7
+go: finding github.com/hashicorp/hcl v1.0.0
+go: finding github.com/magiconair/properties v1.8.0
+go: finding github.com/mitchellh/mapstructure v1.0.0
+go: finding github.com/pelletier/go-toml v0.0.0-20180724185102-c2dbbc24a979
+go: finding github.com/spf13/afero v1.1.1
+go: finding github.com/spf13/cast v1.2.0
+go: finding github.com/spf13/jwalterweatherman v0.0.0-20180814060501-14d3d4c51834
+go: finding github.com/spf13/pflag v0.0.0-20180821114517-d929dcbb1086
+go: finding gopkg.in/yaml.v2 v2.2.2
+go: finding golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
+go: finding cloud.google.com/go v0.38.0
+go: finding google.golang.org/api v0.11.0
+go: finding github.com/googleapis/gax-go/v2 v2.0.5
+go: finding go.opencensus.io v0.21.0
+go: finding github.com/hashicorp/golang-lru v0.5.1
+go: finding github.com/labstack/echo v3.3.10+incompatible
+go: finding github.com/labstack/gommon v0.3.0
+go: finding github.com/mattn/go-colorable v0.1.2
+go: finding github.com/mattn/go-isatty v0.0.9
+go: finding github.com/valyala/fasttemplate v1.1.0
+go: finding github.com/valyala/bytebufferpool v1.0.0
+go: finding github.com/pkg/errors v0.8.1
+go: finding github.com/dgrijalva/jwt-go v0.0.0-20180719211823-0b96aaa70776
+go build -o explorer-task task.go
+go: downloading github.com/thoas/go-funk v0.4.0
+go: extracting github.com/thoas/go-funk v0.4.0
+go: finding github.com/thoas/go-funk v0.4.0
+mongolink api 
+RPCHost: 3.115.13.190:30002
+EOF
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.main()
+	/go/src/github.com/iost-official/backend/task/task.go:13 +0x36
+mongolink api 
+RPCHost: 3.115.13.190:30002
+EOF
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.main()
+	/go/src/github.com/iost-official/backend/task/task.go:13 +0x36
+mongolink api 
+RPCHost: 3.115.13.190:30002
+EOF
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.main()
+	/go/src/github.com/iost-official/backend/task/task.go:13 +0x36
+mongolink api 
+RPCHost: 3.115.13.190:30002
+EOF
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.main()
+	/go/src/github.com/iost-official/backend/task/task.go:13 +0x36
+mongolink api 
+RPCHost: 3.115.13.190:30002
+EOF
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.main()
+	/go/src/github.com/iost-official/backend/task/task.go:13 +0x36
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.mainmongolink api 
+()
+	/go/src/github.com/iost-official/backend/task/task.goRPCHost: 3.115.13.190:30002
+:13 +0x36
+EOF
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+2020/01/14 11:19:01 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+panic: Fatal error config file: Config File "config" Not Found in "[/go/src/github.com/iost-official/config]" 
+
+
+goroutine 1 [running]:
+github.com/iost-official/explorer/backend/config.ReadConfig(0xad17b4, 0x9)
+	/go/src/github.com/iost-official/backend/config/readConfig.go:20 +0x187
+main.main()
+	/go/src/github.com/iost-official/backend/task/task.go:13 +0x36
+mongolink api 
+RPCHost: 3.115.13.190:30002
+EOF
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v3.3.10-dev
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8088
+2020/01/14 11:19:41 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:20:01 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:20:21 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:20:41 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:21:01 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:21:21 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:21:41 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:22:01 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:22:21 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
+2020/01/14 11:22:41 getWitnessList error: Get http://:30001/getChainInfo: dial tcp :30001: connect: connection refused
