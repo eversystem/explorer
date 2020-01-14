@@ -80,8 +80,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  import { config } from '../../utils/config'
+  import { config, axiosWithJWT } from '../../utils/config'
   const { apis } = config
 
   export default {
@@ -173,7 +172,8 @@
       searchData () {
         this.menu = false
         if (!this.searchInput) return
-        axios.get(`${apis.search}${this.searchInput}`).then((response) => {
+        const token = window.localStorage.getItem('ex_token');
+        axiosWithJWT(token).get(`${apis.search}${this.searchInput}`).then((response) => {
           var type = response.data.data.type
           if (type == "block") {
             if (response.data.data.text) {
@@ -340,7 +340,7 @@
   @media screen and (max-width:480px) {
     .header-box {
       &.active {
-        background-color: #2c2e31;
+        background: #2149A7;
       }
       .my-container{
         width: 100%;

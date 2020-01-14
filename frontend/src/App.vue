@@ -29,7 +29,7 @@ export default {
     color: #2c3e50;
     .my-main {
       padding-top: 90px;
-      min-height: 884px;
+      min-height: 750px;
     }
   }
 

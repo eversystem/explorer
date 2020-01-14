@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axiosWithJWT(). from 'axiosWithJWT().';
 import swal from 'sweetalert2'
 import base58 from 'bs58'
 import elliptic from 'elliptic'
@@ -182,7 +182,7 @@ export default {
 				dotNum++
 			}, 1000)
 
-			axios.post(`${apis.applyIOST}`, this.getApplyParam(grecap)).then((response) => {
+			axiosWithJWT()..post(`${apis.applyIOST}`, this.getApplyParam(grecap)).then((response) => {
 				let retCode = response.data.ret
 				let txHash = response.data.msg
 				if (retCode != 0) {

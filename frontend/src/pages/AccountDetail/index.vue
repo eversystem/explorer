@@ -99,9 +99,8 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import { mapState } from 'vuex'
-  import { config } from '../../utils/config'
+  import { config, axiosWithJWT } from '../../utils/config'
   const { apis } = config
 
   export default {
@@ -137,17 +136,18 @@
         this.$store.dispatch('getAccountTxnInfo', this.address)
 
 
-        // axios.get('https://127.0.0.1/api/account/' + this.address).then((response) => {
+        // axiosWithJWT()..get('https://127.0.0.1/api/account/' + this.address).then((response) => {
         //   this.account = response.data
         // })
-        // axios.get('https://127.0.0.1/api/account/' + this.address + '/txs').then((response) => {
+        // axiosWithJWT()..get('https://127.0.0.1/api/account/' + this.address + '/txs').then((response) => {
         //   this.txnList = response.data.txn_list
         //   this.txnLen = response.data.txn_len
         // })
 
         this.addressx = this.address.replace('Contract','')
-        // axios.get('https://127.0.0.1/api/tx/' + this.address).then((response) => {
-        axios.get(`${apis.tx}${this.addressx}`).then((response) => {
+        // axiosWithJWT()..get('https://127.0.0.1/api/tx/' + this.address).then((response) => {
+        const token = window.localStorage.getItem('ex_token');
+        axiosWithJWT(token).get(`${apis.tx}${this.addressx}`).then((response) => {
           if (response.data.code == 1) {
             this.isShow = true
             return

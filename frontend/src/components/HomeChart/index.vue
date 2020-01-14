@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import {axiosWithJWT} from '../../utils/config';
   import HighCharts from 'highcharts'
 
   export default {
@@ -51,7 +51,8 @@
       }
     },
     mounted() {
-      axios.get('https://127.0.0.1/api/indexBlocks').then((response) => {
+      const token = window.localStorage.getItem('ex_token');
+      axiosWithJWT(token).get('https://127.0.0.1/api/indexBlocks').then((response) => {
         var jsonData = {"2018-05-24":20569,"2018-06-04":28753,"2018-05-25":23059,"2018-06-03":22407,"2018-06-02":34091,"2018-05-23":16423,"2018-06-01":22233,"2018-05-28":24396,"2018-05-29":55395,"2018-05-26":35262,"2018-06-06":45847,"2018-05-27":17640,"2018-06-05":20908,"2018-05-31":19050,"2018-05-30":26296}
         var xData = []
         var yData = []

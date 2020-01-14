@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import {axiosWithJWT} from '../../utils/config';
 
   export default {
     name: "BPList",
@@ -47,7 +47,8 @@
     },
     methods: {
       fetchData() {
-        axios.get('/api/BPList').then((response) => {
+        const token = window.localStorage.getItem('ex_token');
+        axiosWithJWT(token).get('/api/BPList').then((response) => {
           this.bpList = response.data.data
         })
       }

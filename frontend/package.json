@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axiosWithJWT().": "^0.18.0",
     "bootstrap": "^4.3.1s",
     "bootstrap-vue": "latest",
     "bs58": "^4.0.1",

@@ -8,6 +8,7 @@ const Index = () => import('../pages/Home')
 import Blocks from '../pages/Blocks'
 import Block from '../pages/BlockDetail'
 import Txs from '../pages/Txns'
+import Login from '../pages/Login'
 import Tx from '../pages/TxnsDetail'
 import Accounts from '../pages/Accounts'
 import AccountDetail from '../pages/AccountDetail'
@@ -42,6 +43,15 @@ export default new Router({
       components: {
         Head: Head,
         Main: Index,
+        Foot: Foot
+      }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      components: {
+        Head: Head,
+        Main: Login,
         Foot: Foot
       }
     },

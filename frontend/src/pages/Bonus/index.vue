@@ -32,7 +32,7 @@
 
 <script type="text/javascript">
 	import Swal from 'sweetalert2';
-	import axios from 'axios';
+	import {axiosWithJWT} from '../../utils/config';
 
 	export default {
 		name: 'Bonus',
@@ -165,13 +165,14 @@
 					return;
 				}
 				self.account = account;
+		        const token = window.localStorage.getItem('ex_token');
 
-				axios.get(`http://52.68.100.183/getCandidateBonus/${account}/1`)
+				axiosWithJWT(token).get(`http://52.68.100.183/getCandidateBonus/${account}/1`)
 		        	.then((response) => {
 		        		self.bonusVal = response.data.bonus / 2;
 		          })
 
-		       	axios.get(`http://52.68.100.183/getTokenBalance/${account}/contribute/1`)
+		       	axiosWithJWT(token).get(`http://52.68.100.183/getTokenBalance/${account}/contribute/1`)
 		       		.then((response) => {
 		       			self.bpVal = response.data.balance;
 		       		})

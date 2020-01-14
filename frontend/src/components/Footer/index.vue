@@ -22,7 +22,7 @@
     text-align: left;
     background: #2C2E31;
     overflow: hidden;
-    height: 180px;
+    height: 100px;
     .my-container {
       width: 1000px;
       margin: 0 auto;
