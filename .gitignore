@@ -69,7 +69,6 @@ backend/config/config.json
 backend/task/explorer-task
 backend/explorer
 
-config.json
 go.mod
 go.sum
 yarn.lock

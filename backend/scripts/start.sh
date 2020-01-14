@@ -12,9 +12,11 @@ make
 
 cd /go/src/github.com/iost-official/backend
 
-nohup ./explorer 2>&1 &
+export HOST="3.115.13.190"
 
-nohup ./task/explorer-task 2>&1 &
+nohup ./explorer  &
+
+nohup ./task/explorer-task  &
 
 /bin/bash
 

@@ -20,7 +20,7 @@ log4js.configure({
     default: { appenders: ["out"], level: "info" }
   }
 });
-const logger = log4js.getLogger("ATS-EXplorer-Proxy");
+const logger = log4js.getLogger("ATS-Explorer-Proxy");
 
 const host = process.env.HOST || "";
 const port = process.env.PORT || 8000;
@@ -84,7 +84,7 @@ app.use(
 
     const result: AxiosResponse | void = await axios({
       method,
-      url: `backend:8088/api/${url}`,
+      url: `backend:8088/api${url}`,
       data: body
     }).catch((err: AxiosError) => {
       res.status(500).send("Internal Server Error");

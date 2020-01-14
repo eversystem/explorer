@@ -13,6 +13,6 @@ yarn
 
 echo "Starting the proxy server"
 
-forever start -c ts-node ./forever/config.json
+forever start -c ts-node app.ts
 
 ash

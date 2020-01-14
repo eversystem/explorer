@@ -6,6 +6,7 @@
     "port": "27017",
     "user": "",
     "password": "",
-    "db": "api"
+    "db": "api",
+    "mongoLink": "mongodb://mongo:27017"
   }
 }

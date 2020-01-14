@@ -1,35 +1,18 @@
 #!/bin/bash
 
-source ~/.bash_rc
+# source ~/.bash_rc
 
-echo "Installing repository"
-git clone https://github.com/eversystem/explorer.git
-
-
-echo " --------------------"
-echo "|  Starting backend  |"
-echo " --------------------"
-
-echo "Installing dependencies"
-
-cd ~/explorer/backend
-go mod init github.com/iost-official/explorer/backend
-
-echo "Building the explorer server"
-make
-
-cd ~/explorer/backend/task
-
-echo "Building cron task"
-
-make
-
+# echo "Installing repository"
+# git clone https://github.com/eversystem/explorer.git
 
 echo " --------------------"
 echo "|  Building frontend |"
 echo " --------------------"
 
+cd ~/explorer/frontend
+
 echo "Building the server"
+yarn
 yarn build
 
 
