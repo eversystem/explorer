@@ -1,76 +1,72 @@
-# IOST Blockchain Explorer
+# Explorer
 
-### Prerequisites
-* Golang 1.10.1 (or newer) is required to build this project
-* Mongodb 4.0 (or newer) is required, We recommend Redis stable version
-* node.js 8.10   (or newer) is required
+## Prerequisites
 
-## Installation
-```bash
-get repo first:
-git clone https://github.com/iost-official/explorer
+OS:　Amazon Linux2
+Docker, Docker Composeがインストール済みでDockerデーモンが起動していること
+
+エクスプローラーを建てるサーバーは以下をセキュリティグループで開ける
+
+1. Port: 8080, source: 0.0.0.0/0
+2. Port: 8000, source: 0.0.0.0/0
+
+### 手順１
+
+以下のスクリプトで必要なものをインストールする
+
 ```
 
-### Frontend
-```bash
-#  Change Directory
-cd explorer/frontend/
+./scripts/init_al2.sh
 
-# build
-npm install
-
-# run in test
-npm run dev
-
-# run production build
-npm run build
 ```
 
-### Backend
-```bash
-#  Change Directory
-cd explorer/backend/
+### 手順2
 
-# build
-make
+各種コンフィグを手で書き換える
 
-# run
-./explorer
+1. ./docker-compose.ymlのenvironment
+   1. 以下を書き換える（docker-compose.yml内）
+   2. backend/HOST
+   3. proxy/BASICNAME, BASICPASS, JWTSEC
+2. backendのコンフィグ
+   1. ./backend/config/config.json
+      1. rpcHOSTをノードのIPに
+3. frontendのコンフィグ
+   1. ./frontend/config/prod.env.js
+      1. APIの部分にノードのIPを追加
+
+### 手順3 
+
+以下のスクリプトでコンテナを起動する
+
 ```
 
-### Mongo Cron Task
-```bash
-#  Change Directory
-cd explorer/backend/task
+./scripts/start.sh
 
-# build
-make
-
-# run
-./explorer-task
 ```
-## Contribution
 
-Contribution of any forms is appreciated!
+### 手順4
 
-Currently, our core tech team is working intensively to develop the first stable version and core block chain structure. We will accept pull request after the first stable release published.
+バックエンドを起動する
+<!-- TODO 自動化 -->
 
-If you have any questions, please email to team@iost.io
+```
 
-## Community & Resources
+docker exec -it back bash
 
-Make sure to check out these resources as well for more information and to keep up to date with all the latest news about IOST project and team.
+/go/src/github.com/iost-official/backend
+に入るので
 
-[IOSToken on Reddit](https://www.reddit.com/r/IOStoken)
+nohup ./explorer &
 
-[Telegram](https://t.me/officialios)
+cd ./task
 
-[Twitter](https://twitter.com/IOStoken)
+nohup ./explorer-task & 
 
-[Official website](https://iost.io)
+```
 
-## Disclaimer
+### 手順5
 
-- IOS Blockchain is unfinished and some parts are highly experimental. Use the code at your own risk.
+サーバーのIP:8080
+に行って入れるか確認
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

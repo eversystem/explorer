@@ -23,6 +23,8 @@ services:
     working_dir: /go/src/github.com/iost-official/backend
     command: ./scripts/start.sh
     stdin_open: true
+    environment:
+      - HOST=ノードのIP
     volumes: 
       - ./backend:/go/src/github.com/iost-official/backend
     networks:
@@ -38,6 +40,10 @@ services:
     command: ./start.sh
     stdin_open: true
     working_dir: /app/proxy/scripts
+    environment:
+      - BASICNAME=適当な名前
+      - BASICPASS=適当なパスワード
+      - JWTSEC=適当な文字列
     volumes: 
       - ./proxy:/app/proxy
     networks:
