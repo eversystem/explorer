@@ -41,8 +41,8 @@ services:
     stdin_open: true
     working_dir: /app/proxy/scripts
     environment:
-      - BASICNAME=適当な名前
-      - BASICPASS=適当なパスワード
+      - BASICAUTHNAME=BASIC認証ユーザー名
+      - BASICAUTHPASS=BASIC認証パスワード
       - JWTSEC=適当な文字列
     volumes: 
       - ./proxy:/app/proxy

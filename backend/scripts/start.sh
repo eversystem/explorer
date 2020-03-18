@@ -14,7 +14,9 @@ cd /go/src/github.com/iost-official/backend
 
 nohup ./explorer  &
 
-nohup ./task/explorer-task  &
+cd task 
+
+nohup ./explorer-task  &
 
 /bin/bash
 

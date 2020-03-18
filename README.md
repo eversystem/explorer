@@ -69,4 +69,3 @@ nohup ./explorer-task &
 
 サーバーのIP:8080
 に行って入れるか確認
-
